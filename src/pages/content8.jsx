@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import Slider from "react-slick";
 import photo1 from "../Assets/photo1.jpg";
 import photo2 from "../Assets/photo2.jpg";
 import photo3 from "../Assets/photo3.jpg";
@@ -12,43 +12,60 @@ const partners = [
   { name: "Grow Gyan", logo: photo4 },
 ];
 
-export default function GrowingWithUs() {
+export default function ClientsSlider() {
+  const settings = {
+    infinite: true,
+    speed: 5000,
+    autoplay: true,
+    autoplaySpeed: 0,
+    cssEase: "linear",
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: false,
+    pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+
   return (
-    <section className="py-8 sm:py-12 lg:py-16 bg-white text-center px-4 sm:px-6 lg:px-8">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-2 sm:mb-3">
-        Who is growing with Us
-      </h2>
-      <p className="mb-8 sm:mb-10 lg:mb-12 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg leading-relaxed">
-        Discover the thriving network of partners, clients, and entrepreneurs
-        who are achieving remarkable growth and progress through their
-        collaboration with us.
-      </p>
+    <section
+      className="py-10 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url('https://img.freepik.com/premium-vector/abstract-technology-background-illustration-hitech-communication-concept-innovation-background_262356-290.jpg')`,
+      }}
+    >
+      <div className=" max-w-7xl mx-auto rounded-xl px-4 py-8">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl font-semibold">We're working with</h2>
+          <p className="text-sm text-gray-600 mt-2">
+            Building valuable collaborations with forward-thinking companies.
+          </p>
+        </div>
 
-      {/* Container with responsive height and proper overflow handling */}
-      <div className="overflow-hidden w-full h-24 sm:h-32 lg:h-40 relative bg-gray-50 rounded-lg">
-        {partners.map((partner, index) => (
-          <motion.img
-            key={index}
-            src={partner.logo}
-            alt={partner.name}
-            className="w-16 h-16 sm:w-24 sm:h-24 lg:w-36 lg:h-36 rounded-full object-cover absolute top-1/2 transform -translate-y-1/2 shadow-lg border-2 border-white"
-            initial={{ x: "100vw" }}
-            animate={{ x: "-200px" }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              delay: index * 2, // Balanced spacing
-              ease: "linear"
-            }}
-            // Add responsive positioning
-            style={{
-              filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.1))"
-            }}
-          />
-        ))}
+        <div className="overflow-hidden">
+          <Slider {...settings}>
+            {partners.map((partner, idx) => (
+              <div key={idx} className="px-3">
+                <div className="  rounded-xl p-4 flex items-center justify-center h-40">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
-
-
     </section>
   );
 }

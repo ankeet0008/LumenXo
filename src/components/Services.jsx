@@ -1,338 +1,390 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Sparkles, Code, Palette, TrendingUp, Wrench, Server } from 'lucide-react';
-import Navbar from '../pages/Navbar';
+import React, { useState, useEffect, useRef } from "react";
+import {
+  Sparkles,
+  Code,
+  Palette,
+  TrendingUp,
+  Wrench,
+  Server,
+  Check,
+  ArrowRight,
+  ExternalLink,
+} from "lucide-react";
+import { Link } from "react-router-dom"; // ✅ React Router Link
+import Navbar from "../pages/Navbar";
 
-  const handleGetCall = () => {
-    window.location.href = '/ContactUs';
-  };
-const AnimatedServicesSection = () => {
-  const [visibleCards, setVisibleCards] = useState(new Set());
-  const [hoveredCard, setHoveredCard] = useState(null);
-
-
-  const services = [
-    {
-      title: ' Administration',
-      description: `Strategic integration of corporate responsibility into core operations for sustainable business practices.`,
+const services = [
+  {
+    img: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Administration",
+    shortDescription: "Strategic integration of corporate responsibility into core operations for sustainable business practices.",
+    iconComponent: Sparkles,
+    gradient: "from-slate-50 to-slate-100",
+    accentColor: "text-blue-600",
+    detailedContent: {
+      overview: "Our Administration services focus on streamlining your business operations through strategic planning, process optimization, and corporate governance. We help organizations build sustainable frameworks that drive long-term success.",
       features: [
-        "Strategic Planning",
-        "Process Optimization",
-        "Corporate Governance",
-        "Risk Management"
+        "Strategic Business Planning & Analysis",
+        "Corporate Governance & Compliance",
+        "Process Optimization & Automation",
+        "Risk Management & Assessment",
+        "Performance Monitoring & KPI Development",
+        "Change Management & Implementation"
       ],
-      technologies: [
-        { name: "Salesforce", icon: "SF", color: "bg-blue-500" },
-        { name: "SAP", icon: "S", color: "bg-blue-600" },
-        { name: "Oracle", icon: "O", color: "bg-red-500" },
-        { name: "Microsoft", icon: "M", color: "bg-blue-600" }
+      benefits: [
+        "Increased operational efficiency by up to 40%",
+        "Enhanced regulatory compliance and risk mitigation",
+        "Streamlined workflows and reduced redundancies",
+        "Improved decision-making through data-driven insights"
       ],
-      gradient: "from-blue-500 via-blue-600 to-indigo-700",
-      iconComponent: Sparkles,
-      accentColor: "blue"
-    },
-    {
-      title: ' Application Development',
-      description: `Robust, scalable, and intuitive applications across platforms from ideation to deployment.`,
-      features: [
-        "Custom Software Development",
-        "Mobile Applications",
-        "Web Applications",
-        "API Development"
-      ],
-      technologies: [
-        { name: "React", icon: "R", color: "bg-blue-500" },
-        { name: "Node.js", icon: "N", color: "bg-green-500" },
-        { name: "Python", icon: "P", color: "bg-blue-600" },
-        { name: "Java", icon: "J", color: "bg-red-500" }
-      ],
-      gradient: "from-purple-500 via-pink-500 to-rose-600",
-      iconComponent: Code,
-      accentColor: "purple"
-    },
-    {
-      title: ' Web Design',
-      description: `Modern, responsive, and user-centric websites with seamless navigation and visual aesthetics.`,
-      features: [
-        "UI/UX Design",
-        "Responsive Design",
-        "Brand Identity",
-        "User Research"
-      ],
-      technologies: [
-        { name: "Figma", icon: "F", color: "bg-purple-600" },
-        { name: "Adobe XD", icon: "A", color: "bg-pink-500" },
-        { name: "Sketch", icon: "S", color: "bg-orange-500" },
-        { name: "Webflow", icon: "W", color: "bg-blue-600" }
-      ],
-      gradient: "from-cyan-400 via-blue-500 to-indigo-600",
-      iconComponent: Palette,
-      accentColor: "cyan"
-    },
-    {
-      title: ' Digital Marketing',
-      description: `End-to-end digital marketing solutions — SEO, social media strategy, content marketing, and analytics.`,
-      features: [
-        "SEO Optimization",
-        "Social Media Marketing",
-        "Content Strategy",
-        "PPC Campaigns"
-      ],
-      technologies: [
-        { name: "Google Ads", icon: "G", color: "bg-green-500" },
-        { name: "Facebook", icon: "F", color: "bg-blue-600" },
-        { name: "HubSpot", icon: "H", color: "bg-orange-500" },
-        { name: "Mailchimp", icon: "M", color: "bg-yellow-500" }
-      ],
-      gradient: "from-emerald-400 via-green-500 to-teal-600",
-      iconComponent: TrendingUp,
-      accentColor: "emerald"
-    },
-    {
-      title: ' WordPress Development',
-      description: `Dynamic, SEO-friendly, and fully customized WordPress websites tailored to your business goals.`,
-      features: [
-        "Custom Theme Development",
-        "Plugin Development",
-        "E-commerce Solutions",
-        "SEO Optimization"
-      ],
-      technologies: [
-        { name: "WordPress", icon: "W", color: "bg-blue-600" },
-        { name: "PHP", icon: "P", color: "bg-purple-600" },
-        { name: "MySQL", icon: "M", color: "bg-blue-500" },
-        { name: "WooCommerce", icon: "W", color: "bg-purple-500" }
-      ],
-      gradient: "from-orange-400 via-red-500 to-pink-600",
-      iconComponent: Wrench,
-      accentColor: "orange"
-    },
-    {
-      title: ' Backend Development',
-      description: `Secure APIs, optimized databases, and scalable server-side logic for smooth application performance.`,
-      features: [
-        "API Development",
-        "Database Design",
-        "Server Architecture",
-        "Cloud Integration"
-      ],
-      technologies: [
-        { name: "Node.js", icon: "N", color: "bg-green-500" },
-        { name: "Python", icon: "P", color: "bg-blue-600" },
-        { name: "MongoDB", icon: "M", color: "bg-green-600" },
-        { name: "AWS", icon: "A", color: "bg-orange-500" }
-      ],
-      gradient: "from-slate-600 via-gray-700 to-zinc-800",
-      iconComponent: Server,
-      accentColor: "slate"
+      technologies: ["ERP Systems", "Business Intelligence Tools", "Workflow Automation", "Compliance Management Software"]
     }
-  ];
+  },
+  {
+    img: "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Application Development",
+    shortDescription: "Robust, scalable, and intuitive applications across platforms from ideation to deployment.",
+    iconComponent: Code,
+    gradient: "from-slate-50 to-slate-100",
+    accentColor: "text-purple-600",
+    detailedContent: {
+      overview: "We develop cutting-edge applications that transform your business ideas into powerful digital solutions. Our full-stack development approach ensures scalable, secure, and user-friendly applications across all platforms.",
+      features: [
+        "Custom Web Application Development",
+        "Mobile App Development (iOS & Android)",
+        "Progressive Web Apps (PWA)",
+        "API Development & Integration",
+        "Database Design & Management",
+        "Cloud Deployment & DevOps"
+      ],
+      benefits: [
+        "Faster time-to-market with agile development",
+        "Cross-platform compatibility and reach",
+        "Scalable architecture for future growth",
+        "Enhanced user experience and engagement"
+      ],
+      technologies: ["React", "Node.js", "Python", "Flutter", "AWS", "Docker", "MongoDB", "PostgreSQL"]
+    }
+  },
+  {
+    img: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Web Design",
+    shortDescription: "Modern, responsive, and user-centric websites with seamless navigation and visual aesthetics.",
+    iconComponent: Palette,
+    gradient: "from-slate-50 to-slate-100",
+    accentColor: "text-cyan-600",
+    detailedContent: {
+      overview: "Our web design services combine aesthetic excellence with functional design principles. We create visually stunning, responsive websites that not only look great but also drive conversions and enhance user experience.",
+      features: [
+        "Responsive Web Design & Development",
+        "UI/UX Design & Prototyping",
+        "E-commerce Website Development",
+        "Landing Page Optimization",
+        "Website Redesign & Migration",
+        "Performance Optimization & SEO"
+      ],
+      benefits: [
+        "Improved user engagement and retention",
+        "Higher conversion rates and ROI",
+        "Better search engine rankings",
+        "Mobile-first responsive design"
+      ],
+      technologies: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "Figma", "Adobe Creative Suite", "Webflow"]
+    }
+  },
+  {
+    img: "https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Digital Marketing",
+    shortDescription: "End-to-end digital marketing solutions — SEO, social media strategy, content marketing, and analytics.",
+    iconComponent: TrendingUp,
+    gradient: "from-slate-50 to-slate-100",
+    accentColor: "text-emerald-600",
+    detailedContent: {
+      overview: "Our comprehensive digital marketing strategies help businesses establish a strong online presence, reach their target audience, and drive measurable growth through data-driven campaigns and innovative marketing techniques.",
+      features: [
+        "Search Engine Optimization (SEO)",
+        "Pay-Per-Click (PPC) Advertising",
+        "Social Media Marketing & Management",
+        "Content Marketing & Strategy",
+        "Email Marketing Campaigns",
+        "Analytics & Performance Tracking"
+      ],
+      benefits: [
+        "Increased brand visibility and awareness",
+        "Higher quality leads and conversions",
+        "Improved customer engagement and loyalty",
+        "Measurable ROI and performance metrics"
+      ],
+      technologies: ["Google Analytics", "Google Ads", "Facebook Ads Manager", "SEMrush", "Mailchimp", "Hootsuite"]
+    }
+  },
+  {
+    img: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "WordPress Development",
+    shortDescription: "Dynamic, SEO-friendly, and fully customized WordPress websites tailored to your business goals.",
+    iconComponent: Wrench,
+    gradient: "from-slate-50 to-slate-100",
+    accentColor: "text-orange-600",
+    detailedContent: {
+      overview: "We specialize in creating powerful, flexible WordPress solutions that grow with your business. From custom themes to complex plugins, we deliver WordPress websites that are both beautiful and functional.",
+      features: [
+        "Custom WordPress Theme Development",
+        "Plugin Development & Customization",
+        "WooCommerce E-commerce Solutions",
+        "WordPress Migration & Optimization",
+        "Maintenance & Security Updates",
+        "Multi-site Management & Setup"
+      ],
+      benefits: [
+        "Easy content management and updates",
+        "SEO-optimized structure and performance",
+        "Scalable and flexible architecture",
+        "Cost-effective long-term solution"
+      ],
+      technologies: ["WordPress", "PHP", "MySQL", "WooCommerce", "ACF", "Elementor", "Gutenberg"]
+    }
+  },
+  {
+    img: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+    title: "Backend Development",
+    shortDescription: "Secure APIs, optimized databases, and scalable server-side logic for smooth application performance.",
+    iconComponent: Server,
+    gradient: "from-slate-50 to-slate-100",
+    accentColor: "text-slate-600",
+    detailedContent: {
+      overview: "Our backend development services provide the robust foundation your applications need. We build secure, scalable, and high-performance server-side solutions that handle complex business logic and data management efficiently.",
+      features: [
+        "RESTful API Development",
+        "Database Design & Optimization",
+        "Server Architecture & Setup",
+        "Authentication & Security Implementation",
+        "Performance Monitoring & Optimization",
+        "Third-party Integration & Services"
+      ],
+      benefits: [
+        "Enhanced security and data protection",
+        "Improved application performance and speed",
+        "Seamless third-party service integration",
+        "Scalable infrastructure for growth"
+      ],
+      technologies: ["Node.js", "Python", "Java", "PostgreSQL", "MongoDB", "Redis", "AWS", "Docker"]
+    }
+  }
+];
+
+const useIntersectionObserver = (options = {}) => {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const targetRef = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      services.forEach((_, index) => {
-        setTimeout(() => {
-          setVisibleCards(prev => new Set([...prev, index]));
-        }, index * 100);
-      });
-    }, 200);
-    return () => clearTimeout(timer);
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsIntersecting(entry.isIntersecting);
+    }, {
+      threshold: 0.1,
+      rootMargin: '50px',
+      ...options
+    });
+
+    const currentTarget = targetRef.current;
+    if (currentTarget) {
+      observer.observe(currentTarget);
+    }
+
+    return () => {
+      if (currentTarget) {
+        observer.unobserve(currentTarget);
+      }
+    };
   }, []);
 
-  const AnimatedServiceCard = ({ service, index }) => {
-    const [isHovered, setIsHovered] = useState(false);
+  return [targetRef, isIntersecting];
+};
 
-    const handleGetStarted = () => {
-      window.location.href = '/BookNow';
-    };
+const ServiceCard = ({ service, index }) => {
+  const [cardRef, isVisible] = useIntersectionObserver();
+  const Icon = service.iconComponent;
 
-    const titleParts = service.title.split(' ');
-    const emoji = titleParts[0];
-    const titleText = titleParts.slice(1).join(' ');
-    const IconComponent = service.iconComponent;
+  return (
+    <div
+      ref={cardRef}
+      className={`bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-500 ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+      }`}
+      style={{
+        transitionDelay: `${index * 150}ms`,
+      }}
+    >
+      {/* Image Header */}
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={service.img}
+          alt={service.title}
+          className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
-    return (
-      <div
-        className={`group relative transition-all duration-500 transform ${
-          visibleCards.has(index)
-            ? 'translate-y-0 opacity-100 scale-100'
-            : 'translate-y-8 opacity-0 scale-95'
-        }`}
-        onMouseEnter={() => {
-          setIsHovered(true);
-          setHoveredCard(index);
-        }}
-        onMouseLeave={() => {
-          setIsHovered(false);
-          setHoveredCard(null);
-        }}
-      >
-        {/* Glow effect */}
-        <div className={`absolute -inset-0.5 rounded-2xl bg-gradient-to-r ${service.gradient} opacity-0 blur-xl transition-all duration-500 group-hover:opacity-30`} />
-        
-        {/* Main card */}
-        <div className={`relative bg-gradient-to-br from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-xl border border-gray-700/50 text-white rounded-2xl p-5 overflow-hidden transition-all duration-500 transform ${
-          isHovered ? 'scale-105 shadow-xl border-gray-600/70' : 'scale-100 shadow-lg'
-        }`}>
-          
-          {/* Background mesh */}
-          <div className="absolute inset-0 opacity-5">
-            <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} mix-blend-overlay`} />
+        {/* Floating Icon */}
+        <div className="absolute bottom-4 left-6">
+          <div className="bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg">
+            <Icon size={24} className={service.accentColor} />
           </div>
+        </div>
 
-          {/* Icon section */}
-          <div className="relative mb-4">
-            <div className={`w-12 h-12 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center mb-3 relative transition-all duration-300 shadow-md ${
-              isHovered ? 'rotate-3 scale-110' : ''
-            }`}>
-              <IconComponent className={`w-6 h-6 text-white z-10`} />
-              <div className="absolute -top-1 -right-1 text-lg">
-                {emoji}
-              </div>
-            </div>
-          </div>
-
-          {/* Title */}
-          <h3 className={`text-lg font-bold mb-3 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-            {titleText}
+        {/* Title Overlay */}
+        <div className="absolute bottom-4 right-6">
+          <h3 className="text-xl font-bold text-white drop-shadow-lg">
+            {service.title}
           </h3>
+        </div>
+      </div>
 
-          {/* Description */}
-          <p className="text-gray-300 text-sm leading-relaxed mb-4">
-            {service.description}
+      {/* Content */}
+      <div className="p-8">
+        {/* Description */}
+        <div className="mb-8">
+          <p className="text-gray-600 leading-relaxed">
+            {service.shortDescription}
           </p>
+        </div>
 
+        {/* Overview */}
+        <div className="mb-8">
+          <h4 className="text-lg font-semibold text-gray-900 mb-4">Overview</h4>
+          <p className="text-gray-600 leading-relaxed text-sm">
+            {service.detailedContent.overview}
+          </p>
+        </div>
+
+        {/* Content Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Features */}
-          <div className="mb-4">
-            <h4 className="text-white font-semibold text-sm mb-2 flex items-center">
-              <div className={`w-1.5 h-1.5 bg-gradient-to-r ${service.gradient} rounded-full mr-2`} />
+          <div>
+            <h4 className="text-base font-semibold text-gray-900 mb-4">
               Key Features
             </h4>
-            <div className="grid grid-cols-1 gap-1.5">
-              {service.features.map((feature, idx) => (
-                <div key={idx} className="flex items-center text-gray-300 text-xs">
-                  <div className={`w-1 h-1 bg-gradient-to-r ${service.gradient} rounded-full mr-2`} />
-                  <span>{feature}</span>
-                </div>
+            <ul className="space-y-3">
+              {service.detailedContent.features.map((feature, idx) => (
+                <li key={idx} className="flex items-start space-x-3">
+                  <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-600 leading-relaxed">
+                    {feature}
+                  </span>
+                </li>
               ))}
-            </div>
+            </ul>
+          </div>
+
+          {/* Benefits */}
+          <div>
+            <h4 className="text-base font-semibold text-gray-900 mb-4">
+              Benefits
+            </h4>
+            <ul className="space-y-3">
+              {service.detailedContent.benefits.map((benefit, idx) => (
+                <li key={idx} className="flex items-start space-x-3">
+                  <ArrowRight className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-600 leading-relaxed">
+                    {benefit}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Technologies */}
-          <div className="mb-4">
-            <h4 className="text-white font-semibold text-sm mb-2 flex items-center">
-              <div className={`w-1.5 h-1.5 bg-gradient-to-r ${service.gradient} rounded-full mr-2`} />
+          <div>
+            <h4 className="text-base font-semibold text-gray-900 mb-4">
               Technologies
             </h4>
-            <div className="grid grid-cols-2 gap-2">
-              {service.technologies.map((tech, idx) => (
-                <div
+            <div className="flex flex-wrap gap-2">
+              {service.detailedContent.technologies.map((tech, idx) => (
+                <span
                   key={idx}
-                  className="bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 rounded-lg p-2 flex items-center space-x-2 transition-all duration-300 hover:bg-gray-700/60"
+                  className="px-3 py-1.5 bg-gray-50 text-gray-700 rounded-lg text-xs font-medium border border-gray-100 hover:bg-gray-100 transition-colors"
                 >
-                  <div className={`w-6 h-6 ${tech.color} rounded-lg flex items-center justify-center`}>
-                    <span className="text-white text-xs font-bold">{tech.icon}</span>
-                  </div>
-                  <span className="text-xs text-gray-300 font-medium">{tech.name}</span>
-                </div>
+                  {tech}
+                </span>
               ))}
             </div>
           </div>
+        </div>
 
-          {/* CTA Button */}
-          <button
-            onClick={handleGetStarted}
-            className={`w-full bg-gradient-to-r ${service.gradient} text-white py-2.5 px-4 rounded-xl font-semibold text-sm flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 hover:shadow-lg group/button relative overflow-hidden`}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/button:translate-x-full transition-transform duration-700" />
-            <span className="relative z-10">Get Started</span>
-            <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover/button:translate-x-1 relative z-10" />
-          </button>
-
-          {/* Card number */}
-          <div className={`absolute top-3 right-3 w-6 h-6 bg-gradient-to-r ${service.gradient} rounded-full flex items-center justify-center text-white font-bold text-xs transition-all duration-300 ${
-            isHovered ? 'scale-110' : ''
-          }`}>
-            {index + 1}
+        {/* CTA */}
+        <div className="mt-8 pt-6 border-t border-gray-100">
+          <div className="flex justify-end">
+            <Link
+              to="/BookNow"
+              className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5 flex items-center space-x-2 text-sm"
+            >
+              <span>Get Started</span>
+              <ExternalLink className="w-3 h-3" />
+            </Link>
           </div>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
+
+export default function DetailedServicesSection() {
+  const [headerRef, headerVisible] = useIntersectionObserver();
 
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
-        {/* Background effects */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
-          
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-20 animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`,
-              }}
-            />
-          ))}
-          
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-block mb-4">
-              <div className="flex items-center justify-center space-x-2 text-sm font-medium text-blue-400 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
-                {/* <Sparkles className="w-4 h-4" /> */}
-                {/* <span>What We Offer</span> */}
-              </div>
-            </div>
-            
-            <h1 className="text-4xl lg:text-5xl font-black mb-4 bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent leading-tight">
-              Our Services
-            </h1>
-{/*             
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-6 leading-relaxed">
-              Comprehensive digital solutions crafted with precision and expertise to transform your business vision into reality.
-            </p> */}
-            
-            <div className="flex items-center justify-center space-x-4 mb-8">
-              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-blue-500 animate-pulse" />
-              <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-spin" style={{ animationDuration: '3s' }} />
-              <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-transparent animate-pulse" />
-            </div>
-          </div>
-
-          {/* Services grid - 4 columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <AnimatedServiceCard key={index} service={service} index={index} />
-            ))}
-          </div>
-
-          {/* Bottom CTA section */}
-          <div className="text-center mt-16 pt-12 border-t border-gray-800/50">
-            <h3 className="text-2xl font-bold text-white mb-3">
-              Ready to Get Started?
-            </h3>
-            <p className="text-gray-400 mb-6 max-w-xl mx-auto">
-              Let's discuss your project and bring your ideas to life with our expert team.
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div ref={headerRef} className="text-center mb-20">
+          <div
+            className={`transform transition-all duration-700 ${
+              headerVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-5 opacity-0"
+            }`}
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Services We Offer
+            </h2>
+            <div className="w-16 h-1 bg-blue-600 mx-auto mb-8"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              We are determined to help you reach your business goals. LumenXo
+              is a creative digital agency, focused on linking your potential
+              customers with your products and services through innovative
+              digital solutions.
             </p>
-            <button onClick={handleGetCall} className="bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 text-white px-6 py-3 rounded-xl font-semibold text-base hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-blue-500/25">
-              Start Your Project
-            </button>
           </div>
         </div>
-      </div>
+
+        <div className="max-w-7xl mx-auto space-y-16">
+          {services.map((service, index) => (
+            <ServiceCard key={index} service={service} index={index} />
+          ))}
+        </div>
+
+        <div
+          className="text-center mt-20 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('https://static.vecteezy.com/system/resources/previews/006/852/804/original/abstract-blue-background-simple-design-for-your-website-free-vector.jpg')",
+          }}
+        >
+          <div className="bg-opacity-90 rounded-2xl p-10 max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-4">
+              Ready to Transform Your Business?
+            </h3>
+            <p className="text-white mb-8 text-lg leading-relaxed max-w-2xl mx-auto">
+              Let's discuss how our services can help you achieve your goals.
+              Get in touch for a free consultation and discover the
+              possibilities.
+            </p>
+            <Link
+              to="/BookNow"
+              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
+            >
+              Start Your Project Today
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
-};
-
-export default AnimatedServicesSection;
-
+}

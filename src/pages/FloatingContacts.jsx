@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaPhone, FaEnvelope, FaComments } from 'react-icons/fa';
+import { FaPhone, FaWhatsapp, FaComments } from 'react-icons/fa';
 
-// Styled chatbot popup (same as before)
 const ChatBotPopup = styled.div`
   position: fixed;
   bottom: 90px;
@@ -16,7 +15,6 @@ const ChatBotPopup = styled.div`
   overflow: hidden;
 `;
 
-// Left container for call and email
 const FloatingLeftContainer = styled.div`
   position: fixed;
   bottom: 20px;
@@ -30,7 +28,7 @@ const FloatingLeftContainer = styled.div`
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    background-color: #25D366; /* green */
+    background-color: #25D366;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,16 +41,12 @@ const FloatingLeftContainer = styled.div`
     transition: transform 0.3s ease;
   }
 
-  a.email {
-    background-color: #0072C6; /* blue */
-  }
-
   a:hover {
     transform: translateY(-5px);
   }
 `;
 
-// Right container for chatbot button (same as before)
+
 const FloatingRightContainer = styled.div`
   position: fixed;
   bottom: 20px;
@@ -101,24 +95,20 @@ const FloatingContacts = () => {
         </ChatBotPopup>
       )}
 
-      {/* Left side: Call & Email */}
       <FloatingLeftContainer>
-        <a
-          href="tel:+917656918304"
-          aria-label="Call Us"
-        >
+        <a href="tel:+917656918304" aria-label="Call Us">
           <FaPhone />
         </a>
         <a
-          href="mailto:info.lumenxo@gmail.com"
-          className="email"
-          aria-label="Send Email"
+          href="https://www.whatsapp.com/channel/0029VaxwsYuJUM2jam4hDZ12"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp Channel"
         >
-          <FaEnvelope />
+          <FaWhatsapp />
         </a>
       </FloatingLeftContainer>
 
-      {/* Right side: Chatbot button */}
       <FloatingRightContainer>
         <button
           onClick={() => setShowChatbot(!showChatbot)}
@@ -127,7 +117,7 @@ const FloatingContacts = () => {
         >
           <FaComments />
         </button>
-      </FloatingRightContainer>z
+      </FloatingRightContainer>
     </>
   );
 };
