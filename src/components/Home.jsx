@@ -12,6 +12,7 @@ import Testimonial from '../pages/testimonialsection'
 
 import Content8 from '../pages/content8.jsx'
 import LumenIntro from './LumenIntro.jsx'
+import GallerySlider from '../pages/Gallery.jsx'
 
 const Home = () => {
   return (
@@ -20,13 +21,14 @@ const Home = () => {
       <Content1/>
       <LumenIntro/>
       <Content3/>
-       
+      
        <Content5/>
        
       <Content2/>
      <Content6/>
     
       <Content4/>
+       <GallerySlider/>
       <Content8/>
       <Testimonial/>
       <ContactUs/>

@@ -158,7 +158,7 @@ const CareersSection = () => {
                       Details <IoChevronDown />
                     </button>
                     <Link
-                      to="https://forms.gle/SBdjJmp2Zn5KCxwv9"
+                      to="/ApplyNow"
                       className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-5 py-2 rounded-full font-semibold text-sm hover:scale-105 transition"
                     >
                       Apply Now

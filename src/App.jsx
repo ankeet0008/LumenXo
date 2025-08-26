@@ -11,6 +11,7 @@ import Careers from './pages/careers';
 import CallbackModal from './components/CallbackModal';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ApplyNow from "./pages/ApplyNow"
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/BookNow" element={<BookNow />} />
         <Route path="/Careers" element={<Careers />} />
+        <Route path="/ApplyNow" element={<ApplyNow />} />
       </Routes>
 
       <FloatingContacts />
