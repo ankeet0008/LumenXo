@@ -2131,11 +2131,12 @@ const DigitalAgencyHome = () => {
         
         <h1 className="hero-headline">
           <div className="hero-line">
-            <span className="hero-word">Design</span>
-            <span className="hero-word">&</span>
-            <span className="hero-word">Brand</span>
+            <span className="hero-word">Design,</span>
+            <span className="hero-word">Development</span>
           </div>
           <div className="hero-line">
+            <span className="hero-word">&</span>
+            <span className="hero-word">Brand</span>
             <span className="hero-word">Acceleration</span>
           </div>
           <div className="hero-line">

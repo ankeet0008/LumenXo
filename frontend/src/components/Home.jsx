@@ -724,15 +724,15 @@ const Home = () => {
             <div className="hero-badge">Digital brand design agency</div>
             <h1 className="hero-title">
               <span className="hero-line">
-                <span className="hero-word">Design</span>
+                <span className="hero-word">Design,</span>
+                <span className="hero-word">Development</span>
                 <span className="hero-word">&</span>
                 <span className="hero-word">Brand</span>
-                <span className="hero-word">Acceleration</span>
               </span>
               <span className="hero-line">
+                <span className="hero-word">Acceleration</span>
                 <span className="hero-word">for</span>
-                <span className="hero-word">SaaS</span>
-                <span className="hero-word">Startups</span>
+                <span className="hero-word">Enterprises</span>
               </span>
             </h1>
             <p className="hero-subtitle">
