@@ -197,10 +197,10 @@ const GlobalNavbar = ({ theme = 'dark' }) => {
             </Link>
           </div>
           <div className="nav-links">
+            <Link to="/AboutUs">About Us</Link>
+            <Link to="/Services">Services</Link>
             <Link to="/Careers">Careers</Link>
-            <Link to="/Services">Service</Link>
-            <Link to="/Pricing">Blog</Link>
-            <Link to="/AboutUs">About us</Link>
+            <Link to="/Blog">Blog</Link>
           </div>
           <Link to="/ContactUs" className="nav-btn">Contact</Link>
           
@@ -214,9 +214,10 @@ const GlobalNavbar = ({ theme = 'dark' }) => {
 
       <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
         <Link to="/" onClick={toggleMenu}>Home</Link>
-        <Link to="/Services" onClick={toggleMenu}>Service</Link>
-        <Link to="/Pricing" onClick={toggleMenu}>Blog</Link>
-        <Link to="/AboutUs" onClick={toggleMenu}>About us</Link>
+        <Link to="/AboutUs" onClick={toggleMenu}>About Us</Link>
+        <Link to="/Services" onClick={toggleMenu}>Services</Link>
+        <Link to="/Careers" onClick={toggleMenu}>Careers</Link>
+        <Link to="/Blog" onClick={toggleMenu}>Blog</Link>
         <Link 
           to="/ContactUs" 
           className="nav-btn" 

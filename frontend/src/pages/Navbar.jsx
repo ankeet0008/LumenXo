@@ -21,9 +21,9 @@ const Navbar = () => {
     { name: 'Home', to: '/' },
     { name: 'About Us', to: '/AboutUs' },
     { name: 'Services', to: '/Services' },
-    { name: 'Contact Us', to: '/ContactUs' },
-    { name: 'Blog', to: '/Pricing' },
     { name: 'Careers', to: '/Careers' },
+    { name: 'Blog', to: '/Blog' },
+    { name: 'Contact Us', to: '/ContactUs' },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -57,7 +57,7 @@ const Navbar = () => {
           <a href="https://www.youtube.com/@Lumenxo" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
             <FaYoutube />
           </a>
-          <a href="https://www.linkedin.com/company/lumenxo/" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
+          <a href="https://www.linkedin.com/company/lumenxosoftwarepvtltd/" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
             <FaLinkedinIn />
           </a>
           <a href="https://www.instagram.com/lumenxo__/" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
