@@ -346,7 +346,7 @@ const GlobalFooter = ({ hrOnly = false }) => {
               <a href="#" className="social-circle-btn"><Globe size={20} /></a>
               <a href="https://www.instagram.com/lumenxo__" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><Instagram size={20} /></a>
               <a href="https://x.com/Lumenxoinc" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><Twitter size={20} /></a>
-              <a href="https://www.linkedin.com/company/lumenxo/" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><Linkedin size={20} /></a>
+              <a href="https://www.linkedin.com/company/lumenxosoftwarepvtltd/" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><Linkedin size={20} /></a>
               <a href="https://www.facebook.com/people/LumenXo-Inc/61573160147922/?rdid=Q108uaz8L7Wak14j&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19KfLtjtA2%2F" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><Facebook size={20} /></a>
               <a href="https://www.whatsapp.com/channel/0029VaxwsYuJUM2jam4hDZ12" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><MessageCircle size={20} /></a>
             </div>

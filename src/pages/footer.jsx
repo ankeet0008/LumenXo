@@ -123,7 +123,7 @@ export default function Footer() {
                     },
                     {
                       icon: FaLinkedinIn,
-                      url: "https://www.linkedin.com/company/lumenxo/"
+                      url: "https://www.linkedin.com/company/lumenxosoftwarepvtltd/"
                     },
                     {
                       icon: FaTwitter,

@@ -56,7 +56,7 @@ const Navbar = () => {
           <a href="https://www.youtube.com/@Lumenxo" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
             <FaYoutube />
           </a>
-          <a href="https://www.linkedin.com/company/lumenxo/" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
+          <a href="https://www.linkedin.com/company/lumenxosoftwarepvtltd/" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
             <FaLinkedinIn />
           </a>
           <a href="https://www.instagram.com/lumenxo__/" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
