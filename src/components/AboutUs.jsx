@@ -563,7 +563,7 @@ const AboutUs = () => {
 
       {/* HERO */}
       <section className="hero-section">
-        <h1 className="reveal">Challenging Design’s Status Quo for Business</h1>
+        <h1 className="reveal">About Us</h1>
         <div className="hero-grid reveal">
           <div className="hero-text">
             Two founders saw technology as more than just lines of code. They were tired of the industry's outdated approach, which treated digital solutions as a mere "nice-to-have" rather than a powerful business catalyst.

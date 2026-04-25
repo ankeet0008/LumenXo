@@ -2107,18 +2107,40 @@ const DigitalAgencyHome = () => {
           font-size: 14px;
         }
 
+        @media (max-width: 1200px) {
+          .hero-headline { font-size: clamp(48px, 8vw, 84px); }
+          .welcome-bento-grid-wide { gap: 24px; }
+          .innovate-card { padding: 60px; }
+        }
+
         @media (max-width: 992px) {
-          .footer-main {
-            flex-direction: column;
-            gap: 40px;
-          }
-          .footer-contact {
-            text-align: left;
-            width: 100%;
-          }
-          .footer-socials {
-            justify-content: flex-start;
-          }
+          .hero-headline { font-size: clamp(40px, 7vw, 64px); }
+          .welcome-bento-grid-wide { grid-template-columns: 1fr; }
+          .footer-main { flex-direction: column; gap: 40px; }
+          .footer-contact { text-align: left; width: 100%; }
+          .footer-socials { justify-content: flex-start; }
+          .innovate-card { flex-direction: column; text-align: center; gap: 40px; }
+          .innovate-left { max-width: 100%; }
+          .innovate-btns { justify-content: center; }
+          .innovate-right { justify-content: center; width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+          .hero-headline { font-size: clamp(32px, 10vw, 48px); }
+          .hero-badge { font-size: 10px; padding: 6px 14px; }
+          .navbar { width: 95%; }
+          .welcome-title-letters { font-size: 32px; }
+          .btn-write, .btn-book-dark { width: 100%; padding: 18px 32px; font-size: 16px; }
+          .innovate-btns { flex-direction: column; gap: 12px; }
+          .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+          .hero-headline { font-size: 32px; }
+          .hero-word { margin-right: 8px; }
+          .bento-card { padding: 24px; }
+          .bento-number-large { font-size: 48px; }
+          .testimonials-title { font-size: 32px; }
         }
       `}</style>
 
@@ -2444,8 +2466,8 @@ const DigitalAgencyHome = () => {
             <div className="service-icon-wrapper">
               <Server size={32} />
             </div>
-            <h3>Hosting</h3>
-            <p>Reliable, secure, and lightning-fast cloud hosting solutions for your applications.</p>
+            <h3>API Service</h3>
+            <p>Secure, scalable, and high-performance API design and integration for seamless data exchange.</p>
             <Link to="/Services" className="service-link">
               Explore More <ArrowRight size={16} />
             </Link>
