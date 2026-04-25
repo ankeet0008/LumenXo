@@ -232,12 +232,14 @@ export default function ServiceDetailPage() {
                 <h4 className="text-2xl font-bold text-white mb-2">Ready to scale?</h4>
                 <p className="text-gray-400 text-sm">Let's integrate this solution into your business.</p>
               </div>
-              <Link 
-                to="/BookNow" 
+              <a 
+                href="https://alvo.chat/7ytu" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-6 sm:mt-0 px-8 py-4 bg-[#F05A28] hover:bg-[#e04e20] text-white rounded-xl font-bold transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
               >
-                Start a Project
-              </Link>
+                Contact Us
+              </a>
             </div>
           </div>
 

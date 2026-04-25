@@ -20,35 +20,35 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-import iconAngular from '../../frontend/src/Assets/Angular.svg';
-import iconCSS3 from '../../frontend/src/Assets/CSS3.svg';
-import iconDjango from '../../frontend/src/Assets/Django.svg';
-import iconDocker from '../../frontend/src/Assets/Docker.svg';
-import iconJava from '../../frontend/src/Assets/Java.svg';
-import iconMySQL from '../../frontend/src/Assets/MySQL.svg';
-import iconNode from '../../frontend/src/Assets/Node.js.svg';
-import iconPython from '../../frontend/src/Assets/Python.svg';
-import iconTailwind from '../../frontend/src/Assets/Tailwind CSS.svg';
-import iconVue from '../../frontend/src/Assets/Vue.js.svg';
-import iconHtml from '../../frontend/src/Assets/html-icon.svg';
-import iconJs from '../../frontend/src/Assets/js-svgrepo-com.svg';
-import iconReact from '../../frontend/src/Assets/react-svgrepo-com.svg';
+import iconAngular from '../Assets/Angular.svg';
+import iconCSS3 from '../Assets/CSS3.svg';
+import iconDjango from '../Assets/Django.svg';
+import iconDocker from '../Assets/Docker.svg';
+import iconJava from '../Assets/Java.svg';
+import iconMySQL from '../Assets/MySQL.svg';
+import iconNode from '../Assets/Node.js.svg';
+import iconPython from '../Assets/Python.svg';
+import iconTailwind from '../Assets/Tailwind CSS.svg';
+import iconVue from '../Assets/Vue.js.svg';
+import iconHtml from '../Assets/html-icon.svg';
+import iconJs from '../Assets/js-svgrepo-com.svg';
+import iconReact from '../Assets/react-svgrepo-com.svg';
 import MaskRevealGallery from './MaskRevealGallery';
-import imgNew1 from '../../frontend/src/Assets/new1.jpg';
-import imgForbes from '../../frontend/src/Assets/forbs.png';
-import imgHindustan from '../../frontend/src/Assets/hindustan.jpeg';
-import imgMumbai from '../../frontend/src/Assets/mumbai.jpeg';
-import imgTedx from '../../frontend/src/Assets/tedx.png';
-import imgTep from '../../frontend/src/Assets/TEP.webp';
-import logoLumenXo from '../../frontend/src/Assets/logolumenxo.png';
-import photo1 from '../../frontend/src/Assets/photo1.jpg';
-import photo2 from '../../frontend/src/Assets/photo2.jpg';
-import photo3 from '../../frontend/src/Assets/photo3.jpg';
-import photo4 from '../../frontend/src/Assets/photo4.png';
-import photo5 from '../../frontend/src/Assets/photo5.png';
-import photo6 from '../../frontend/src/Assets/photo6.jpeg';
-import photo7 from '../../frontend/src/Assets/photo7.jpeg';
-import imgInnovate from '../../frontend/src/Assets/iovatewus.svg';
+import imgNew1 from '../Assets/new1.jpg';
+import imgForbes from '../Assets/forbs.png';
+import imgHindustan from '../Assets/hindustan.jpeg';
+import imgMumbai from '../Assets/mumbai.jpeg';
+import imgTedx from '../Assets/tedx.png';
+import imgTep from '../Assets/TEP.webp';
+import logoLumenXo from '../Assets/logolumenxo.png';
+import photo1 from '../Assets/photo1.jpg';
+import photo2 from '../Assets/photo2.jpg';
+import photo3 from '../Assets/photo3.jpg';
+import photo4 from '../Assets/photo4.png';
+import photo5 from '../Assets/photo5.png';
+import photo6 from '../Assets/photo6.jpeg';
+import photo7 from '../Assets/photo7.jpeg';
+import imgInnovate from '../Assets/iovatewus.svg';
 import GlobalFooter from './GlobalFooter';
 import GlobalNavbar from './GlobalNavbar';
 
@@ -2127,7 +2127,7 @@ const DigitalAgencyHome = () => {
       {/* 2. HERO SECTION & SCROLL TRIGGER EXPANDING PILL SECTION */}
       <section className="hero-section" ref={scrollSectionRef}>
         <div className="hero-glow"></div>
-        <div className="hero-badge">Digital brand design agency</div>
+        <div className="hero-badge">Tenacity || Transformation || Triumph</div>
         
         <h1 className="hero-headline">
           <div className="hero-line">
@@ -2140,8 +2140,7 @@ const DigitalAgencyHome = () => {
           </div>
           <div className="hero-line">
             <span className="hero-word">for</span>
-            <span className="hero-word">SaaS</span>
-            <span className="hero-word">Startups</span>
+            <span className="hero-word">Enterprises</span>
           </div>
         </h1>
 

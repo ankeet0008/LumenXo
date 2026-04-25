@@ -15,7 +15,7 @@ import {
   Globe2
 } from 'lucide-react';
 
-import logoLumenXo from '../../frontend/src/Assets/logolumenxo.png';
+import logoLumenXo from '../Assets/logolumenxo.png';
 import GlobalFooter from './GlobalFooter';
 import GlobalNavbar from './GlobalNavbar';
 
@@ -262,7 +262,7 @@ const AboutUs = () => {
 
         .year-card {
           width: 380px;
-          height: 240px;
+          height: 260px;
           background: #F2F2F7;
           border-radius: 40px;
           display: flex;
@@ -281,17 +281,18 @@ const AboutUs = () => {
 
         .year-badge {
           position: absolute;
-          right: 20px;
-          top: 50%;
+          right: 30px;
+          top: 45%;
           transform: translateY(-50%) rotate(270deg);
           background: #7C4DFF;
           color: #fff;
-          padding: 4px 12px;
+          padding: 4px 10px;
           border-radius: 6px;
-          font-size: 12px;
-          font-weight: 700;
+          font-size: 11px;
+          font-weight: 800;
           text-transform: uppercase;
-          letter-spacing: 1px;
+          letter-spacing: 2px;
+          white-space: nowrap;
         }
 
         .year-desc {
@@ -579,35 +580,57 @@ const AboutUs = () => {
 
       {/* TIMELINE */}
       <section className="timeline-section">
-        <div className="year-card-wrapper reveal">
-          <div className="year-card">
-            <div className="year-number">2023</div>
-            <div className="year-badge">year</div>
+        {[
+          { year: "2024", desc: "Born from a vision of two passionate founders who wanted to change the perception of technology in the business world." },
+          { year: "2025", desc: "Scaled our operations globally, delivering enterprise-grade solutions to 50+ partners across three continents.", reverse: true },
+          { year: "2026", desc: "Driving the future of AI and SaaS, empowering the next generation of digital leaders through innovation and mentorship." }
+        ].map((item, idx) => (
+          <div key={idx} className={`year-card-wrapper ${item.reverse ? 'reverse' : ''} reveal`}>
+            <div 
+              className="year-card"
+              onMouseEnter={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const fill = e.currentTarget.querySelector('.card-fill');
+                const number = e.currentTarget.querySelector('.year-number');
+                const badge = e.currentTarget.querySelector('.year-badge');
+                
+                gsap.set(fill, { x, y, scale: 0, opacity: 1 });
+                gsap.to(fill, { scale: 10, duration: 0.8, ease: "power2.out" });
+                gsap.to(number, { color: "#fff", duration: 0.4 });
+                gsap.to(badge, { background: "#fff", color: "#7C4DFF", duration: 0.4 });
+              }}
+              onMouseLeave={(e) => {
+                const fill = e.currentTarget.querySelector('.card-fill');
+                const number = e.currentTarget.querySelector('.year-number');
+                const badge = e.currentTarget.querySelector('.year-badge');
+                
+                gsap.to(fill, { opacity: 0, duration: 0.5, ease: "power2.in" });
+                gsap.to(number, { color: "#000", duration: 0.4 });
+                gsap.to(badge, { background: "#7C4DFF", color: "#fff", duration: 0.4 });
+              }}
+              style={{ overflow: 'hidden', cursor: 'pointer' }}
+            >
+              <div className="card-fill" style={{
+                position: 'absolute',
+                width: '100px',
+                height: '100px',
+                background: '#7C4DFF',
+                borderRadius: '50%',
+                pointerEvents: 'none',
+                opacity: 0,
+                transform: 'translate(-50%, -50%)',
+                zIndex: 0
+              }} />
+              <div className="year-number" style={{ position: 'relative', zIndex: 1, fontSize: '80px' }}>{item.year}</div>
+              <div className="year-badge" style={{ position: 'relative', zIndex: 1 }}>year</div>
+            </div>
+            <div className="year-desc">
+              <h2>{item.desc}</h2>
+            </div>
           </div>
-          <div className="year-desc">
-            <h2>Born from a vision of two passionate founders who wanted to change the perception of technology in the business world.</h2>
-          </div>
-        </div>
-
-        <div className="year-card-wrapper reverse reveal">
-          <div className="year-card">
-            <div className="year-number">2024</div>
-            <div className="year-badge">year</div>
-          </div>
-          <div className="year-desc">
-            <h2>Scaled our operations globally, delivering enterprise-grade solutions to 50+ partners across three continents.</h2>
-          </div>
-        </div>
-
-        <div className="year-card-wrapper reveal">
-          <div className="year-card">
-            <div className="year-number">2025</div>
-            <div className="year-badge">year</div>
-          </div>
-          <div className="year-desc">
-            <h2>Driving the future of AI and SaaS, empowering the next generation of digital leaders through innovation and mentorship.</h2>
-          </div>
-        </div>
+        ))}
       </section>
 
       {/* BLACK MISSION SECTION */}

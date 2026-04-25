@@ -3,10 +3,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Assets
-import imgC1 from '../../frontend/src/Assets/c1.jpg';
-import imgC2 from '../../frontend/src/Assets/c2.jpg';
-import imgTech from '../../frontend/src/Assets/techsprint.jpeg';
-import imgHack from '../../frontend/src/Assets/hacknovation.jpg';
+import imgC1 from '../Assets/c1.jpg';
+import imgC2 from '../Assets/c2.jpg';
+import imgTech from '../Assets/techsprint.jpeg';
+import imgHack from '../Assets/hacknovation.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -145,7 +145,7 @@ const MaskRevealGallery = () => {
       <style>{`
         .mask-reveal-section {
           background: #1C1C1E;
-          padding: 120px 60px 20px 60px;
+          padding: 40px 60px 20px 60px;
           color: #FFFFFF;
           font-family: 'Inter', sans-serif;
           overflow: hidden;
@@ -193,18 +193,22 @@ const MaskRevealGallery = () => {
 
         .reveal-img-container {
           width: 100%;
+          aspect-ratio: 16 / 10;
           overflow: hidden;
-          background: #1C1C1E;
+          background: transparent;
           position: relative;
           border-radius: 12px;
-          border: 3px solid #FF5733; /* Orange Frame */
+          border: 3px solid #FF5733;
         }
 
         .reveal-img {
           width: 100%;
-          height: auto;
+          height: 120%;
+          top: -10%;
+          object-fit: cover !important;
+          object-position: center;
           display: block;
-          position: relative;
+          position: absolute;
           will-change: clip-path, transform;
         }
 

@@ -166,9 +166,15 @@ const OutcrowdHome = () => {
             <p className="oc-body" style={{ maxWidth: '500px', margin: '0 auto 32px' }}>
               Let's discuss how our design expertise can help you achieve your business goals faster.
             </p>
-            <button className="oc-btn-primary" style={{ padding: '16px 36px', fontSize: '16px' }}>
-              Start your project <ChevronRight size={20} style={{ marginLeft: '8px' }} />
-            </button>
+            <a 
+              href="https://alvo.chat/7ytu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="oc-btn-primary" 
+              style={{ padding: '16px 36px', fontSize: '16px', display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
+            >
+              Contact Us <ChevronRight size={20} style={{ marginLeft: '8px' }} />
+            </a>
           </div>
         </div>
       </section>

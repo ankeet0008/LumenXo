@@ -271,17 +271,17 @@ const CareersSection = () => {
               Send Your Resume
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link
-              to="/AboutUs"
-              className="bg-transparent border border-gray-600 hover:border-white text-white px-8 py-4 rounded-full font-bold transition-colors"
+            <a
+              href="mailto:hr@lumenxo.com"
+              className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-bold flex items-center justify-center gap-3 transition-all"
             >
-              Learn More About Us
-            </Link>
+              Email HR
+            </a>
           </div>
         </div>
       </section>
 
-      <GlobalFooter theme="dark" />
+      <GlobalFooter theme="dark" hrOnly={true} />
     </div>
   );
 };

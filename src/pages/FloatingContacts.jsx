@@ -130,7 +130,7 @@ const FloatingContacts = () => {
   const [showToast, setShowToast] = useState(false);
 
   const handleCopyNumber = () => {
-    navigator.clipboard.writeText("+91 8260569773");
+    navigator.clipboard.writeText("+91 82605 69773");
     setShowToast(true);
     setTimeout(() => {
       setShowToast(false);
@@ -140,7 +140,7 @@ const FloatingContacts = () => {
   return (
     <>
       {showToast && (
-        <Toast>Phone number copied: +91 8260569773</Toast>
+        <Toast>Phone number copied: +91 82605 69773</Toast>
       )}
       
       {showChatbot && (

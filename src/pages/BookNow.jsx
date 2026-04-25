@@ -70,13 +70,25 @@ const ContactLumenXo = () => {
 
             {/* Phone */}
             <a
-              href="tel:+917656918304"
+              href="tel:+918260569773"
               className="p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition"
             >
               <FaPhoneAlt size={20} />
             </a>
             <a
-              href="tel:+918260569773"
+              href="tel:+919040565414"
+              className="p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition"
+            >
+              <FaPhoneAlt size={20} />
+            </a>
+            <a
+              href="tel:+918598938589"
+              className="p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition"
+            >
+              <FaPhoneAlt size={20} />
+            </a>
+            <a
+              href="tel:+917656918304"
               className="p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition"
             >
               <FaPhoneAlt size={20} />

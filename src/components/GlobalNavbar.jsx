@@ -93,21 +93,40 @@ const GlobalNavbar = ({ theme = 'dark' }) => {
         }
 
         .nav-btn {
-          background-color: #FF5733;
-          color: #fff;
+          position: relative;
+          background-color: #F2F2F7;
+          color: #000;
           border: none;
           border-radius: 8px;
-          padding: 12px 20px;
+          padding: 12px 24px;
           font-weight: 800;
           font-size: 15px;
           cursor: pointer;
-          transition: transform 0.2s, background-color 0.2s;
+          transition: transform 0.2s;
           font-family: 'Inter', sans-serif;
+          overflow: hidden;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
         }
 
-        .nav-btn:hover {
-          background-color: #ff5e33;
-          transform: scale(1.02);
+        .btn-fill {
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          background: #7C4DFF;
+          border-radius: 50%;
+          pointer-events: none;
+          opacity: 0;
+          transform: translate(-50%, -50%);
+          z-index: 0;
+        }
+
+        .btn-text {
+          position: relative;
+          z-index: 1;
+          transition: color 0.4s;
         }
 
         .hamburger {
@@ -198,7 +217,31 @@ const GlobalNavbar = ({ theme = 'dark' }) => {
         <Link to="/Services" onClick={toggleMenu}>Service</Link>
         <Link to="/Pricing" onClick={toggleMenu}>Blog</Link>
         <Link to="/AboutUs" onClick={toggleMenu}>About us</Link>
-        <Link to="/ContactUs" className="nav-btn" style={{ display: 'block', marginTop: '20px', textAlign: 'center' }} onClick={toggleMenu}>Contact</Link>
+        <Link 
+          to="/ContactUs" 
+          className="nav-btn" 
+          style={{ display: 'flex', marginTop: '20px', textAlign: 'center' }} 
+          onClick={toggleMenu}
+          onMouseEnter={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const fill = e.currentTarget.querySelector('.btn-fill');
+            const text = e.currentTarget.querySelector('.btn-text');
+            gsap.set(fill, { x, y, scale: 0, opacity: 1 });
+            gsap.to(fill, { scale: 5, duration: 0.8, ease: "power2.out" });
+            gsap.to(text, { color: "#ffffff", duration: 0.4 });
+          }}
+          onMouseLeave={(e) => {
+            const fill = e.currentTarget.querySelector('.btn-fill');
+            const text = e.currentTarget.querySelector('.btn-text');
+            gsap.to(fill, { opacity: 0, duration: 0.5, ease: "power2.in" });
+            gsap.to(text, { color: "#000000", duration: 0.4 });
+          }}
+        >
+          <span className="btn-text">Contact</span>
+          <div className="btn-fill" />
+        </Link>
       </div>
     </>
   );

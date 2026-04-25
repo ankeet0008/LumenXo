@@ -4,12 +4,13 @@ import {
   Instagram, 
   Linkedin, 
   Twitter, 
-  Github, 
-  Globe 
+  Facebook, 
+  Globe,
+  MessageCircle
 } from 'lucide-react';
 import imgInnovate from '../Assets/iovatewus.svg';
 
-const GlobalFooter = () => {
+const GlobalFooter = ({ hrOnly = false }) => {
   return (
     <>
       <style>{`
@@ -273,8 +274,8 @@ const GlobalFooter = () => {
               <button 
                 onClick={(e) => {
                   e.preventDefault();
-                  navigator.clipboard.writeText("+91 8260569773");
-                  alert("Phone number copied: +91 8260569773");
+                  navigator.clipboard.writeText("+91 82605 69773");
+                  alert("Phone number copied: +91 82605 69773");
                 }} 
                 className="btn-book-call" style={{
                 background: '#2C2C2E',
@@ -323,31 +324,38 @@ const GlobalFooter = () => {
             <div className="footer-col">
               <h4>Legal</h4>
               <ul>
-                <li><Link to="#">Privacy Policy</Link></li>
-                <li><Link to="#">Terms of Service</Link></li>
-                <li><Link to="#">Cookie Policy</Link></li>
+                <li><Link to="/PrivacyPolicy">Privacy Policy</Link></li>
+                <li><Link to="/TermsOfService">Terms of Service</Link></li>
+                <li><Link to="/CookiePolicy">Cookie Policy</Link></li>
               </ul>
             </div>
           </div>
 
           <div className="footer-contact-large">
             <div className="footer-email-stack">
-              <a href="mailto:info@lumenxo.com" className="footer-email-large">info@lumenxo.com</a>
-              <a href="mailto:support@lumenxo.com" className="footer-email-large">support@lumenxo.com</a>
+              {hrOnly ? (
+                <a href="mailto:hr@lumenxo.com" className="footer-email-large">hr@lumenxo.com</a>
+              ) : (
+                <>
+                  <a href="mailto:info@lumenxo.com" className="footer-email-large">info@lumenxo.com</a>
+                  <a href="mailto:support@lumenxo.com" className="footer-email-large">support@lumenxo.com</a>
+                </>
+              )}
             </div>
             <div className="footer-social-row">
               <a href="#" className="social-circle-btn"><Globe size={20} /></a>
-              <a href="#" className="social-circle-btn"><Instagram size={20} /></a>
-              <a href="#" className="social-circle-btn"><Twitter size={20} /></a>
-              <a href="#" className="social-circle-btn"><Linkedin size={20} /></a>
-              <a href="#" className="social-circle-btn"><Github size={20} /></a>
+              <a href="https://www.instagram.com/lumenxo__" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><Instagram size={20} /></a>
+              <a href="https://x.com/Lumenxoinc" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><Twitter size={20} /></a>
+              <a href="https://www.linkedin.com/company/lumenxo/" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><Linkedin size={20} /></a>
+              <a href="https://www.facebook.com/people/LumenXo-Inc/61573160147922/?rdid=Q108uaz8L7Wak14j&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19KfLtjtA2%2F" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><Facebook size={20} /></a>
+              <a href="https://www.whatsapp.com/channel/0029VaxwsYuJUM2jam4hDZ12" target="_blank" rel="noopener noreferrer" className="social-circle-btn"><MessageCircle size={20} /></a>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom" style={{ maxWidth: '1300px', margin: '40px auto 0' }}>
           <p>Copyright © 2025 LumenXo Inc. All rights reserved.</p>
-          <p>Blasore - India</p>
+          <p>Kuruda, Balasore, Odisha - India</p>
         </div>
       </footer>
     </>

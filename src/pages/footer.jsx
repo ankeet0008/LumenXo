@@ -51,11 +51,11 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3 text-gray-300 hover:text-violet-400 transition-colors duration-300">
                   <FaPhone className="text-violet-400" />
-                  <span className="text-sm">+91 7656918304</span>
+                  <span className="text-sm">+91 8260569773 / 7656918304</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-300 hover:text-violet-400 transition-colors duration-300">
                   <FaMapMarkerAlt className="text-violet-400" />
-                  <span className="text-sm">Balasore, Odisha, India</span>
+                  <span className="text-sm">Kuruda, Balasore, Odisha, India</span>
                 </div>
               </div>
             </div>
@@ -123,11 +123,15 @@ export default function Footer() {
                     },
                     {
                       icon: FaLinkedinIn,
-                      url: "https://tr.ee/FsF_Mbaqy9"
+                      url: "https://www.linkedin.com/company/lumenxo/"
                     },
                     {
                       icon: FaTwitter,
                       url: "https://x.com/Lumenxoinc"
+                    },
+                    {
+                      icon: FaInstagram,
+                      url: "https://www.instagram.com/lumenxo__"
                     },
                     {
                       icon: BsWhatsapp,
