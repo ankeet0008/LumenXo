@@ -1,128 +1,181 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaFacebookF,
+  FaTwitter,
+  FaYoutube,
+  FaLinkedinIn,
+  FaInstagram,
+} from 'react-icons/fa';
+import logoLumenxo from '../Assets/logolumenxo.png';
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
+  const location = useLocation();
+
+  const navItems = [
+    { name: 'Home', to: '/' },
+    { name: 'About Us', to: '/AboutUs' },
+    { name: 'Services', to: '/Services' },
+    { name: 'Contact Us', to: '/ContactUs' },
+    { name: 'Blog', to: '/Pricing' },
+    { name: 'Careers', to: '/Careers' },
+  ];
+
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <motion.nav
-      initial={{ y: -60, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="bg-white text-black relative z-50"
-      style={{ fontFamily: "'Poppins', sans-serif" }}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo and Brand Name */}
-          <div className="flex items-center">
-            <img
-              src="https://bing.com/th/id/OIP.3pHyhWedLbR9iGYTQq76EgAAAA?o=7&cb=thvnextc2rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
-              alt="logo"
-              className="h-8 w-8 rounded-full mr-3"
-            />
-            <span className="text-xl font-bold">LumenXo</span>
+    <>
+  
+      <div className="bg-gradient-to-r from-[#151516] to-[#3783b5] text-white text-sm px-4 py-1 flex flex-col md:flex-row justify-between items-center gap-2">
+        <div className="flex flex-wrap items-center gap-4">
+          <div className="flex items-center gap-1">
+            <FaPhone className="text-blue-300" />
+            <span>7656918304</span>
           </div>
-
-          {/* Mobile toggle bar */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setVisible(!visible)}
-              className="text-#3a176bfe hover:text-gray-200 focus:outline-none relative p-2"
-              aria-label="Toggle navigation"
-              aria-expanded={visible}
-            >
-              <div className="w-6 h-6 relative">
-                <span
-                  className={`block absolute h-0.5 w-6 bg-[#2d1154] transform transition duration-300 ease-in-out ${
-                    visible ? 'rotate-45 translate-y-[10px]' : 'translate-y-[0px]'
-                  }`}
-                ></span>
-                <span
-                  className={`block absolute bg-[#2d1154] h-0.5 w-6 transform transition duration-300 ease-in-out ${
-                    visible ? 'opacity-0' : 'opacity-100'
-                  } top-[10px]`}
-                ></span>
-                <span
-                  className={`block absolute h-0.5 w-6 bg-[#2d1154] transform transition duration-300 ease-in-out ${
-                    visible ? '-rotate-45 translate-y-[10px]' : 'translate-y-[20px]'
-                  }`}
-                ></span>
-              </div>
-            </button>
+          <div className="flex items-center gap-1 border-l border-white pl-4">
+            <FaEnvelope className="text-blue-300" />
+            <span>info.lumenxo@gmail.com</span>
           </div>
-
-          {/* Desktop menu */}
-          <div className="hidden text-lg md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <Link
-                to="/"
-                className="text-[#3a176bfe] px-3 py-2 rounded-md font-bold transition hover:text-[#2d1154]"
-              >
-                Home
-              </Link>
-              <Link
-                to="/AboutUs"
-                className="text-[#3a176bfe] px-3 py-2 rounded-md font-bold transition hover:text-[#2d1154]"
-              >
-                About Us
-              </Link>
-              <Link
-                to="/Services"
-                className="text-[#3a176bfe] px-3 py-2 rounded-md font-bold flex items-center transition hover:text-[#2d1154]"
-              >
-                Services
-              </Link>
-              <Link
-                to="/ContactUs"
-                className="text-[#3a176bfe] px-3 py-2 rounded-md font-bold transition hover:text-[#2d1154]"
-              >
-                Contact Us
-              </Link>
-              <Link
-                to="/Pricing"
-                className="text-[#3a176bfe] px-3 py-2 rounded-md font-bold transition hover:text-[#2d1154]"
-              >
-                Blog
-              </Link>
-            </div>
+          <div className="flex items-center gap-1 border-l border-white pl-4">
+            <FaMapMarkerAlt className="text-blue-300" />
+            <span>Balasore, Odisha, India</span>
           </div>
         </div>
 
-        {/* Mobile menu with animation */}
-        <AnimatePresence>
-          {visible && (
+        <div className="flex gap-2 mt-2 md:mt-0">
+          <a href="https://www.facebook.com/people/LumenXo-Inc/61573160147922/" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
+            <FaFacebookF />
+          </a>
+          <a href="https://x.com/Lumenxoinc" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
+            <FaTwitter />
+          </a>
+          <a href="https://www.youtube.com/@Lumenxo" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
+            <FaYoutube />
+          </a>
+          <a href="https://www.linkedin.com/company/lumenxo/" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
+            <FaLinkedinIn />
+          </a>
+          <a href="https://www.instagram.com/lumenxo__/" className="bg-white text-blue-900 rounded-full p-2 hover:scale-110 transition">
+            <FaInstagram />
+          </a>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {visible && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/30 z-40 md:hidden"
+            onClick={() => setVisible(false)}
+          />
+        )}
+      </AnimatePresence>
+
+  
+      <motion.nav className="w-full z-50 bg-white border-b shadow-md relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between py-1 lg:py-2">
+
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="md:hidden overflow-hidden"
+              className="flex items-center group cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
-              <div className="px-2 pt-2 pb-3 text-lg space-y-1 sm:px-3">
-                {[
-                  { name: 'Home', to: '/' },
-                  { name: 'About Us', to: '/AboutUs' },
-                  { name: 'Services', to: '/Services' },
-                  { name: 'Contact Us', to: '/ContactUs' },
-                  { name: 'Blog', to: '/Pricing' },
-                ].map(({ name, to }) => (
+              <img
+                src={logoLumenxo}
+                alt="LumenXo logo"
+                className="h-[40px] w-auto object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
+              />
+            </motion.div>
+
+         
+            <div className="md:hidden z-50 relative">
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setVisible(!visible)}
+                className="p-3 rounded-xl bg-gray-100 hover:bg-gray-200 text-black z-50 relative"
+              >
+                <div className="w-6 h-6 relative">
+                  <motion.span
+                    animate={{ rotate: visible ? 45 : 0, y: visible ? 8 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="block absolute h-0.5 w-6 bg-black rounded-full"
+                  />
+                  <motion.span
+                    animate={{ opacity: visible ? 0 : 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="block absolute h-0.5 w-6 bg-black top-2 rounded-full"
+                  />
+                  <motion.span
+                    animate={{ rotate: visible ? -45 : 0, y: visible ? -8 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="block absolute h-0.5 w-6 bg-black top-4 rounded-full"
+                  />
+                </div>
+              </motion.button>
+            </div>
+
+   
+            <div className="hidden md:block">
+              <div className="flex items-center space-x-2">
+                {navItems.map((item) => (
                   <Link
-                    key={name}
-                    to={to}
-                    onClick={() => setVisible(false)}
-                    className="block text-[#3a176bfe] px-3 py-2 rounded-md text-base font-medium transition duration-200 hover:text-[#2d1154]"
+                    key={item.name}
+                    to={item.to}
+                    className={`px-4 py-2 lg:px-6 lg:py-3 rounded-xl font-semibold text-sm lg:text-base transition-all duration-300 ${
+                      isActive(item.to)
+                        ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-lg'
+                        : 'text-black hover:text-violet-600 hover:bg-gray-100'
+                    }`}
                   >
-                    {name}
+                    {item.name}
                   </Link>
                 ))}
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.nav>
+            </div>
+          </div>
+
+    
+          <AnimatePresence>
+            {visible && (
+              <motion.div
+                className="md:hidden z-50 relative overflow-hidden bg-white rounded-2xl mt-4 mb-4 border border-gray-200 shadow"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="px-4 py-6 space-y-2">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.to}
+                      onClick={() => setVisible(false)}
+                      className={`block px-4 py-3 rounded-xl font-semibold text-base transition-all duration-300 ${
+                        isActive(item.to)
+                          ? 'bg-black text-white'
+                          : 'text-black hover:text-violet-600 hover:bg-gray-100'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.nav>
+    </>
   );
 };
 

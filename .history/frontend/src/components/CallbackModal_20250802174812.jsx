@@ -1,0 +1,90 @@
+import React, { useEffect, useState } from 'react';
+import { IoMdClose } from 'react-icons/io';
+
+const CallbackModal = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  // Scroll-based trigger
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const triggerHeight = window.innerHeight * 0.5;
+      if (scrollY > triggerHeight) {
+        setShowModal(true);
+        window.removeEventListener('scroll', handleScroll); // Show only once
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!showModal) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+      <div className="bg-white w-full max-w-lg rounded-xl p-6 relative shadow-lg border">
+        {/* ❌ Close button */}
+        <button
+          className="absolute top-3 right-3 text-red-600 text-xl hover:scale-110 transition"
+          onClick={() => setShowModal(false)}
+        >
+          <IoMdClose />
+        </button>
+
+        {/* Content */}
+        <h4 className="text-center text-gray-600 mb-1">Call Back Request</h4>
+        <h2 className="text-center text-2xl font-bold text-gray-800 mb-6">
+          Let Us <span className="text-blue-800">Call You Back</span>
+        </h2>
+
+        {/* Form connected to FormSubmit */}
+        <form
+          action="https://formsubmit.co/info.lumenxo@gmail.com"
+          method="POST"
+          className="space-y-4"
+          target="_blank"
+        >
+          <div className="flex flex-col md:flex-row gap-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              className="flex-1 px-4 py-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              required
+              className="flex-1 px-4 py-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+
+          {/* Hidden FormSubmit options */}
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_autoresponse"
+            value="Thank you for your callback request. We'll get in touch with you shortly!"
+          />
+          {/* Optional redirect after submit */}
+          {/* <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" /> */}
+
+          <button
+            type="submit"
+            className="w-full py-3 bg-blue-800 text-white font-semibold rounded-full hover:bg-blue-900 transition"
+          >
+            Submit Now
+          </button>
+
+          <p className="text-center text-green-600 text-sm">
+            Your Phone Number is kept confidential and not shared with others.
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default CallbackModal;

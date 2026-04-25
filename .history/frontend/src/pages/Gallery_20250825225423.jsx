@@ -1,0 +1,140 @@
+// GallerySlider.jsx
+import React, { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import Img1 from "../Assets/c1.jpg";
+import Img2 from "../Assets/c2.jpg";
+
+const galleryItems = [
+  {
+    img: Img2,
+    title: "Cyber Awareness Programme",
+    description: `Rayagada, Gunupur 15/8 (Sunday):
+On the auspicious occasion of Independence Day, a Cyber Awareness Programme was organized in an enthusiastic atmosphere at Gandhi Public School, Gunupur.
+
+The main objective of this event was to create awareness about the increasing threats in the cyber world, cyber crimes, and online frauds, as well as to provide practical knowledge on how to stay safe in the digital space.
+
+As special guests, Mr. Bibhash Ranjan Panda (Founder, LumenXo Software Pvt. Ltd.) and Mr. Kalyan Kumar Das (Co-Founder) attended the programme. Company officials Ayush Kumar Biswal, Shraddha Suman Nayak, and Ch. Arman were also present and played an active role in making the event successful.
+
+Cybersecurity expert Mr. Shakti Prasad Sahu delivered a detailed talk on cyber safety. He discussed issues such as online fraud, phishing attacks, fake websites, OTP scams, password security, privacy protection on social media, and measures to prevent data theft. He emphasized, “In today’s digital age, cybersecurity is not just an option but a necessity for everyone.”`,
+  },
+  {
+    img: Img1,
+    title: "Serene Lake",
+    description:
+      "This image captures the calmness of nature, reminding us to slow down and breathe.",
+  },
+  {
+    img: "https://source.unsplash.com/random/800x600?forest",
+    title: "Enchanted Forest",
+    description:
+      "A forest full of mystery and life, showing how nature thrives in harmony.",
+  },
+  {
+    img: "https://source.unsplash.com/random/800x600?sunset",
+    title: "Golden Sunset",
+    description:
+      "A glowing sunset painting the sky, symbolizing hope, warmth, and new beginnings.",
+  },
+];
+
+const GallerySlider = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? galleryItems.length - 1 : prev - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === galleryItems.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  return (
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url(${galleryItems[currentIndex].img})`,
+        filter: "blur(8px)",
+      }}
+    >
+      <section className="relative z-10 bg-white/60 backdrop-blur-md rounded-2xl shadow-lg p-8 md:p-12 max-w-6xl w-full">
+        <h2 className="text-3xl font-bold text-center mb-12"> Gallery</h2>
+
+        <div className="relative flex flex-col md:flex-row items-center gap-8">
+          {/* Left Arrow */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/70 p-2 rounded-full shadow hover:bg-white transition"
+          >
+            <ChevronLeft size={28} />
+          </button>
+
+          {/* Image with animation */}
+          <div className="w-full md:w-1/2 overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={galleryItems[currentIndex].img}
+                src={galleryItems[currentIndex].img}
+                alt={galleryItems[currentIndex].title}
+                className="rounded-2xl shadow-lg w-full h-80 object-cover"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5 }}
+              />
+            </AnimatePresence>
+          </div>
+
+          {/* Text with animation */}
+          <div className="w-full md:w-1/2 max-h-80 overflow-y-auto pr-2">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={galleryItems[currentIndex].title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.5 }}
+              >
+                <h3 className="text-2xl font-semibold mb-3">
+                  {galleryItems[currentIndex].title}
+                </h3>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  {galleryItems[currentIndex].description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/70 p-2 rounded-full shadow hover:bg-white transition"
+          >
+            <ChevronRight size={28} />
+          </button>
+        </div>
+
+        {/* Dots (indicators) */}
+        <div className="flex justify-center mt-6 space-x-2">
+          {galleryItems.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full transition ${
+                index === currentIndex
+                  ? "bg-blue-500 scale-110"
+                  : "bg-gray-300"
+              }`}
+            ></button>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default GallerySlider;
