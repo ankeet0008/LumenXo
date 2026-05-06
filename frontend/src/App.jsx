@@ -1,4 +1,3 @@
-// LumenXo Frontend Sync - April 2026
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
@@ -21,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Services" element={<Services />} />
-        <Route path="/Blog" element={<Pricing />} />
+        <Route path="/Pricing" element={<Pricing />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/BookNow" element={<BookNow />} />

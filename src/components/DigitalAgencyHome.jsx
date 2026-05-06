@@ -48,6 +48,8 @@ import photo4 from '../Assets/photo4.png';
 import photo5 from '../Assets/photo5.png';
 import photo6 from '../Assets/photo6.jpeg';
 import photo7 from '../Assets/photo7.jpeg';
+import port from '../Assets/port.jpg';
+import refitool from '../Assets/refitool.jpg';
 import imgInnovate from '../Assets/iovatewus.svg';
 import GlobalFooter from './GlobalFooter';
 import GlobalNavbar from './GlobalNavbar';
@@ -2107,40 +2109,18 @@ const DigitalAgencyHome = () => {
           font-size: 14px;
         }
 
-        @media (max-width: 1200px) {
-          .hero-headline { font-size: clamp(48px, 8vw, 84px); }
-          .welcome-bento-grid-wide { gap: 24px; }
-          .innovate-card { padding: 60px; }
-        }
-
         @media (max-width: 992px) {
-          .hero-headline { font-size: clamp(40px, 7vw, 64px); }
-          .welcome-bento-grid-wide { grid-template-columns: 1fr; }
-          .footer-main { flex-direction: column; gap: 40px; }
-          .footer-contact { text-align: left; width: 100%; }
-          .footer-socials { justify-content: flex-start; }
-          .innovate-card { flex-direction: column; text-align: center; gap: 40px; }
-          .innovate-left { max-width: 100%; }
-          .innovate-btns { justify-content: center; }
-          .innovate-right { justify-content: center; width: 100%; }
-        }
-
-        @media (max-width: 768px) {
-          .hero-headline { font-size: clamp(32px, 10vw, 48px); }
-          .hero-badge { font-size: 10px; padding: 6px 14px; }
-          .navbar { width: 95%; }
-          .welcome-title-letters { font-size: 32px; }
-          .btn-write, .btn-book-dark { width: 100%; padding: 18px 32px; font-size: 16px; }
-          .innovate-btns { flex-direction: column; gap: 12px; }
-          .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
-        }
-
-        @media (max-width: 480px) {
-          .hero-headline { font-size: 32px; }
-          .hero-word { margin-right: 8px; }
-          .bento-card { padding: 24px; }
-          .bento-number-large { font-size: 48px; }
-          .testimonials-title { font-size: 32px; }
+          .footer-main {
+            flex-direction: column;
+            gap: 40px;
+          }
+          .footer-contact {
+            text-align: left;
+            width: 100%;
+          }
+          .footer-socials {
+            justify-content: flex-start;
+          }
         }
       `}</style>
 
@@ -2153,12 +2133,11 @@ const DigitalAgencyHome = () => {
         
         <h1 className="hero-headline">
           <div className="hero-line">
-            <span className="hero-word">Design,</span>
-            <span className="hero-word">Development</span>
-          </div>
-          <div className="hero-line">
+            <span className="hero-word">Design</span>
             <span className="hero-word">&</span>
             <span className="hero-word">Brand</span>
+          </div>
+          <div className="hero-line">
             <span className="hero-word">Acceleration</span>
           </div>
           <div className="hero-line">
@@ -2381,14 +2360,14 @@ const DigitalAgencyHome = () => {
         <h3 className="working-with-title">We are working with</h3>
         <div className="marquee-container">
           <div className="marquee-content">
-            {[photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo1, photo2, photo3, photo4, photo5, photo6, photo7].map((img, idx) => (
+            {[photo1, photo2, photo3, photo4, photo5, photo6, photo7, port, refitool, photo1, photo2, photo3, photo4, photo5, photo6, photo7, port, refitool].map((img, idx) => (
               <div key={`m1-${idx}`} className="marquee-item">
                 <img src={img} alt="Partner" />
               </div>
             ))}
           </div>
           <div className="marquee-content" aria-hidden="true">
-            {[photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo1, photo2, photo3, photo4, photo5, photo6, photo7].map((img, idx) => (
+            {[photo1, photo2, photo3, photo4, photo5, photo6, photo7, port, refitool, photo1, photo2, photo3, photo4, photo5, photo6, photo7, port, refitool].map((img, idx) => (
               <div key={`m2-${idx}`} className="marquee-item">
                 <img src={img} alt="Partner" />
               </div>
@@ -2466,8 +2445,8 @@ const DigitalAgencyHome = () => {
             <div className="service-icon-wrapper">
               <Server size={32} />
             </div>
-            <h3>API Service</h3>
-            <p>Secure, scalable, and high-performance API design and integration for seamless data exchange.</p>
+            <h3>Hosting</h3>
+            <p>Reliable, secure, and lightning-fast cloud hosting solutions for your applications.</p>
             <Link to="/Services" className="service-link">
               Explore More <ArrowRight size={16} />
             </Link>

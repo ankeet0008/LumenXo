@@ -566,25 +566,29 @@ const Home = () => {
       }
 
       @media (max-width: 920px) {
-        .nav-links { display: none; }
-        .stats-card, .installs-card, .productivity-card, .sticky-actions { display: none; }
-        .hero-title { font-size: clamp(32px, 8vw, 56px); }
+        .nav-links {
+          display: none;
+        }
+
+        .stats-card,
+        .installs-card,
+        .productivity-card,
+        .sticky-actions {
+          display: none;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .widget-control {
+          transform: scale(0.85);
+          transform-origin: bottom right;
+        }
       }
 
       @media (max-width: 768px) {
-        .hero { padding: 100px 5% 60px; }
-        .hero-title { font-size: 36px; }
-        .hero-subtitle { font-size: 16px; }
-        .center-mockup { width: 95%; margin-top: 60px; padding: 20px; }
-        .mockup-title { font-size: 20px; }
-        .dashboard-row { flex-direction: column; }
-        .widget-control { display: none; }
-      }
-
-      @media (max-width: 480px) {
-        .hero-title { font-size: 28px; }
-        .hero-badge { font-size: 10px; padding: 6px 14px; }
-        .mockup-dashboard { padding: 12px; }
+        .widget-control {
+          display: none;
+        }
       }
     `;
     document.head.appendChild(styleTag);
@@ -720,15 +724,15 @@ const Home = () => {
             <div className="hero-badge">Digital brand design agency</div>
             <h1 className="hero-title">
               <span className="hero-line">
-                <span className="hero-word">Design,</span>
-                <span className="hero-word">Development</span>
+                <span className="hero-word">Design</span>
                 <span className="hero-word">&</span>
                 <span className="hero-word">Brand</span>
+                <span className="hero-word">Acceleration</span>
               </span>
               <span className="hero-line">
-                <span className="hero-word">Acceleration</span>
                 <span className="hero-word">for</span>
-                <span className="hero-word">Enterprises</span>
+                <span className="hero-word">SaaS</span>
+                <span className="hero-word">Startups</span>
               </span>
             </h1>
             <p className="hero-subtitle">

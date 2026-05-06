@@ -1,4 +1,3 @@
-// LumenXo Branding Sync - April 2026
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/DigitalAgencyHome';
@@ -28,7 +27,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/service/:id" element={<ServiceDetailPage />} />
-        <Route path="/Blog" element={<Blog />} />
+        <Route path="/Pricing" element={<Blog />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/BookNow" element={<BookNow />} />
