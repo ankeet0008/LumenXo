@@ -1,14 +1,14 @@
 import React from "react";
 import { FaPhoneAlt, FaWhatsapp, FaEnvelope } from "react-icons/fa";
-import Navbar from "../pages/Navbar";
-import Booknow from "../Assets/booknow.png";
 import { Link } from "react-router-dom";
+import GlobalNavbar from "../components/GlobalNavbar";
+import GlobalFooter from "../components/GlobalFooter";
 
 
 const ContactLumenXo = () => {
   return (
     <>
-      <Navbar />
+      <GlobalNavbar theme="dark" />
       <div className="bg-black text-white min-h-screen px-6 sm:px-12 lg:px-20 py-10">
       
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -68,21 +68,33 @@ const ContactLumenXo = () => {
               <FaWhatsapp size={20} />
             </a>
 
-           
-            <a
-              href="tel:+917656918304"
-              className="p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition"
-            >
-              <FaPhoneAlt size={20} />
-            </a>
+            {/* Phone */}
             <a
               href="tel:+918260569773"
               className="p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition"
             >
               <FaPhoneAlt size={20} />
             </a>
+            <a
+              href="tel:+919040565414"
+              className="p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition"
+            >
+              <FaPhoneAlt size={20} />
+            </a>
+            <a
+              href="tel:+918598938589"
+              className="p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition"
+            >
+              <FaPhoneAlt size={20} />
+            </a>
+            <a
+              href="tel:+917656918304"
+              className="p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition"
+            >
+              <FaPhoneAlt size={20} />
+            </a>
 
-           
+            {/* Email */}
             <a
               href="mailto:info.lumenxo@gmail.com"
               className="p-3 rounded-lg bg-gray-600 hover:bg-gray-700 transition"
@@ -100,6 +112,7 @@ const ContactLumenXo = () => {
          
         </div>
       </div>
+      <GlobalFooter />
     </>
   );
 };

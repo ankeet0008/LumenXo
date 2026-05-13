@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+import GlobalNavbar from "../components/GlobalNavbar";
 
 export default function JobApplication() {
   const [formData, setFormData] = useState({
@@ -64,7 +64,7 @@ export default function JobApplication() {
 
   return (
     <>
-      <Navbar />
+      <GlobalNavbar theme="light" />
       <div className="min-h-screen bg-gray-100 flex justify-center items-center p-5">
         <form
           onSubmit={handleSubmit}

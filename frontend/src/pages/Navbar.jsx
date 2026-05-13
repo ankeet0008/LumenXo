@@ -11,7 +11,6 @@ import {
   FaLinkedinIn,
   FaInstagram,
 } from 'react-icons/fa';
-import logoLumenxo from '../Assets/logolumenxo.png';
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -30,8 +29,8 @@ const Navbar = () => {
 
   return (
     <>
-  
-      <div className="bg-gradient-to-r from-[#151516] to-[#3783b5] text-white text-sm px-4 py-1 flex flex-col md:flex-row justify-between items-center gap-2">
+      {/* Top bar with contact info and social icons */}
+      <div className="bg-gradient-to-r from-[#151516] to-[#3783b5] text-white text-sm px-4 py-2 flex flex-col md:flex-row justify-between items-center gap-2">
         <div className="flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-1">
             <FaPhone className="text-blue-300" />
@@ -66,6 +65,7 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile overlay */}
       <AnimatePresence>
         {visible && (
           <motion.div
@@ -79,25 +79,31 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-  
+      {/* Main Navbar */}
       <motion.nav className="w-full z-50 bg-white border-b shadow-md relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-1 lg:py-2">
+          <div className="flex items-center justify-between h-16 lg:h-20">
 
+            {/* Logo & Brand */}
             <motion.div
               className="flex items-center group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
               <img
-                src={logoLumenxo}
-                alt="LumenXo logo"
-                className="h-[40px] w-auto object-contain"
-                style={{ filter: 'brightness(0) invert(1)' }}
+                src="https://bing.com/th/id/OIP.3pHyhWedLbR9iGYTQq76EgAAAA?o=7&cb=thvnextc2rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="LumenXo Logo"
+                className="h-10 w-10 lg:h-12 lg:w-12 object-cover rounded-full border border-gray-300 shadow"
               />
+              <div className="ml-3">
+                <span className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
+                  LumenXo
+                </span>
+                <p className="text-xs font-medium text-gray-600">Software Pvt. Ltd.</p>
+              </div>
             </motion.div>
 
-         
+            {/* Mobile Toggle */}
             <div className="md:hidden z-50 relative">
               <motion.button
                 whileTap={{ scale: 0.95 }}
@@ -124,7 +130,7 @@ const Navbar = () => {
               </motion.button>
             </div>
 
-   
+            {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="flex items-center space-x-2">
                 {navItems.map((item) => (
@@ -144,7 +150,7 @@ const Navbar = () => {
             </div>
           </div>
 
-    
+          {/* Mobile Navigation Dropdown */}
           <AnimatePresence>
             {visible && (
               <motion.div

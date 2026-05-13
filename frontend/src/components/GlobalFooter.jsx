@@ -126,10 +126,37 @@ const GlobalFooter = ({ hrOnly = false }) => {
           }
           .innovate-btns {
             justify-content: center;
+            flex-wrap: wrap;
           }
           .innovate-right {
             width: 100%;
             justify-content: center;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .innovate-section {
+            padding: 60px 4%;
+          }
+          .innovate-card {
+            padding: 32px 20px;
+            border-radius: 24px;
+          }
+          .innovate-title {
+            font-size: clamp(32px, 8vw, 56px);
+          }
+          .innovate-desc {
+            font-size: 16px;
+          }
+          .btn-write, .btn-book-dark {
+            padding: 16px 28px;
+            font-size: 15px;
+            border-radius: 14px;
+          }
+          .innovate-btns {
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
           }
         }
 
@@ -259,6 +286,23 @@ const GlobalFooter = ({ hrOnly = false }) => {
             justify-content: flex-start;
           }
         }
+
+        @media (max-width: 480px) {
+          .agency-footer {
+            padding: 60px 5% 40px;
+          }
+          .footer-cols {
+            flex-direction: column;
+            gap: 32px;
+          }
+          .footer-email-large {
+            font-size: clamp(20px, 5vw, 32px);
+            word-break: break-all;
+          }
+          .footer-social-row {
+            flex-wrap: wrap;
+          }
+        }
       `}</style>
 
       {/* INNOVATE WITH US SECTION */}
@@ -277,18 +321,8 @@ const GlobalFooter = ({ hrOnly = false }) => {
                   navigator.clipboard.writeText("+91 82605 69773");
                   alert("Phone number copied: +91 82605 69773");
                 }} 
-                className="btn-book-call" style={{
-                background: '#2C2C2E',
-                color: '#fff',
-                padding: '24px 48px',
-                borderRadius: '20px',
-                fontWeight: '700',
-                fontSize: '18px',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                display: 'inline-block'
-              }}>Book a call</button>
+                className="btn-book-dark"
+              >Book a call</button>
             </div>
           </div>
           <div className="innovate-right">

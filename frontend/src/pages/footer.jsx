@@ -8,7 +8,7 @@ import { BsWhatsapp } from 'react-icons/bs';
 export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white overflow-hidden">
-     
+      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
@@ -22,7 +22,7 @@ export default function Footer() {
 
       <div className="relative z-10 pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-6">
-      
+          {/* Logo & Contact */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             <div className="lg:col-span-2">
               <div className="flex items-center gap-4 mb-6">
@@ -51,16 +51,16 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3 text-gray-300 hover:text-violet-400 transition-colors duration-300">
                   <FaPhone className="text-violet-400" />
-                  <span className="text-sm">+91 7656918304</span>
+                  <span className="text-sm">+91 8260569773 / 7656918304</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-300 hover:text-violet-400 transition-colors duration-300">
                   <FaMapMarkerAlt className="text-violet-400" />
-                  <span className="text-sm">Balasore, Odisha, India</span>
+                  <span className="text-sm">Kuruda, Balasore, Odisha, India</span>
                 </div>
               </div>
             </div>
 
-        
+            {/* Quick Links */}
             <div>
               <h3 className="text-xl font-bold mb-6 relative">
                 Quick Links
@@ -78,7 +78,7 @@ export default function Footer() {
               </ul>
             </div>
 
-      
+            {/* Services */}
             <div>
               <h3 className="text-xl font-bold mb-6 relative">
                 Services
@@ -97,6 +97,7 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Embedded Google Map */}
           <div className="mb-12">
             <h3 className="text-xl font-semibold mb-4">Our Location</h3>
             <div className="w-full h-64 rounded-lg overflow-hidden border border-white/10 shadow-lg">
@@ -109,6 +110,7 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Social Media & Newsletter */}
           <div className="border-t border-gray-700/50 pt-8 mb-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div>
@@ -121,11 +123,15 @@ export default function Footer() {
                     },
                     {
                       icon: FaLinkedinIn,
-                      url: "https://tr.ee/FsF_Mbaqy9"
+                      url: "https://www.linkedin.com/company/lumenxo/"
                     },
                     {
                       icon: FaTwitter,
                       url: "https://x.com/Lumenxoinc"
+                    },
+                    {
+                      icon: FaInstagram,
+                      url: "https://www.instagram.com/lumenxo__"
                     },
                     {
                       icon: BsWhatsapp,
@@ -153,7 +159,7 @@ export default function Footer() {
             </div>
           </div>
 
-          
+          {/* Copyright */}
           <div className="text-center text-gray-500 text-sm">
             &copy; {new Date().getFullYear()} LumenXo. All rights reserved.
           </div>

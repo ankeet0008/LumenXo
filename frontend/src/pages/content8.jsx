@@ -3,25 +3,13 @@ import Slider from "react-slick";
 import photo1 from "../Assets/photo1.jpg";
 import photo2 from "../Assets/photo2.jpg";
 import photo3 from "../Assets/photo3.jpg";
-import photo4 from "../Assets/photo4.png";
-import photo5 from "../Assets/photo5.png";
-import photo6 from "../Assets/photo6.jpeg";
-import photo7 from "../Assets/photo7.jpeg";
-import pp from "../Assets/pp.png";
-import port from "../Assets/port.jpg";
-import refitool from "../Assets/refitool.jpg";
+import photo4 from "../Assets/pp.png";
 
 const partners = [
   { name: "AIRGON", logo: photo1 },
-  { name: "Partner 2", logo: photo2 },
-  { name: "Partner 3", logo: photo3 },
-  { name: "Partner 4", logo: photo4 },
-  { name: "Partner 5", logo: photo5 },
-  { name: "Partner 6", logo: photo6 },
-  { name: "Partner 7", logo: photo7 },
-  { name: "Grow Gyan", logo: pp },
-  { name: "Port", logo: port },
-  { name: "Refitool", logo: refitool },
+  { name: "Tech Mentees", logo: photo2 },
+  { name: "Kaffeinn", logo: photo3 },
+  { name: "Grow Gyan", logo: photo4 },
 ];
 
 export default function ClientsSlider() {
@@ -56,7 +44,7 @@ export default function ClientsSlider() {
     >
       <div className=" max-w-7xl mx-auto rounded-xl px-4 py-8">
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-semibold tracking-widest text-gray-400 uppercase">We are working with</h2>
+          <h2 className="text-3xl font-semibold">We're working with</h2>
           <p className="text-sm text-gray-600 mt-2">
             Building valuable collaborations with forward-thinking companies.
           </p>

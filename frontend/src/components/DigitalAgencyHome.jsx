@@ -15,7 +15,8 @@ import {
   Linkedin,
   Twitter,
   Github,
-  Globe
+  Globe,
+  Bot
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -344,6 +345,14 @@ const DigitalAgencyHome = () => {
         }
       });
 
+      // First, switch the pill back to absolute positioning for the expansion
+      tl.set(".orange-pill", {
+        position: "absolute",
+        left: "50%",
+        transform: "translateX(-50%)",
+        bottom: "auto",
+      }, 0);
+
       tl.to(".orange-pill", {
         top: 0,
         width: "100vw",
@@ -352,6 +361,14 @@ const DigitalAgencyHome = () => {
         borderRadius: "0px",
         duration: 4,
         ease: "power2.inOut"
+      }, 0);
+
+      // Fade out the headline and badge as the pill expands
+      tl.to(".hero-headline, .hero-badge, .hero-subtitle", {
+        opacity: 0,
+        y: -30,
+        duration: 2,
+        ease: "power2.in"
       }, 0);
 
       tl.to(".ticker-item", { fontSize: "48px", fontWeight: 800, duration: 4 }, 0);
@@ -454,6 +471,8 @@ const DigitalAgencyHome = () => {
           position: relative;
           margin: 0;
           padding: 0;
+          width: 100%;
+          max-width: 100vw;
         }
 
         /* NAVBAR */
@@ -590,6 +609,10 @@ const DigitalAgencyHome = () => {
           align-items: center;
           padding-top: 15vh;
           z-index: 10;
+        }
+
+        .hero-subtitle {
+          display: none;
         }
 
         .hero-glow {
@@ -918,12 +941,12 @@ const DigitalAgencyHome = () => {
 
         .orange-pill {
           position: absolute;
-          top: 65vh; /* Moved down below the SaaS startups headline */
+          top: 65vh;
           left: 50%;
           transform: translateX(-50%);
           width: 90%;
           max-width: 480px; 
-          height: 100px; /* Thick pill shape */
+          height: 100px;
           border-radius: 200px;
           background: #fa8415ff;
           overflow: hidden;
@@ -933,6 +956,7 @@ const DigitalAgencyHome = () => {
           align-items: center;
           justify-content: center;
           z-index: 20;
+          box-sizing: border-box;
         }
 
         .ticker-bar-bg {
@@ -989,7 +1013,7 @@ const DigitalAgencyHome = () => {
 
         .center-headline {
           position: absolute;
-          top: 35%; /* Shifted up so tech cards can take the middle */
+          top: 35%;
           left: 50%;
           transform: translate(-50%, -50%);
           font-family: 'Inter', sans-serif;
@@ -1001,6 +1025,7 @@ const DigitalAgencyHome = () => {
           z-index: 5;
           text-align: center;
           white-space: nowrap;
+          max-width: 90vw;
         }
 
         .tech-stack-container {
@@ -1066,34 +1091,110 @@ const DigitalAgencyHome = () => {
             display: block;
           }
           .hero-section {
-            padding-top: 12vh;
+            padding-top: 120px;
+            min-height: 100vh;
+            height: auto;
+            padding-bottom: 40px;
+            justify-content: flex-start;
+            gap: 0;
           }
           .hero-line {
             gap: 8px;
           }
           .hero-badge {
             font-size: 10px;
-            padding: 6px 12px;
+            padding: 6px 14px;
+            margin-bottom: 20px;
+          }
+          .hero-headline {
+            font-size: clamp(36px, 10vw, 56px);
+            padding: 0 20px;
             margin-bottom: 24px;
           }
+          .hero-subtitle {
+            display: block;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.45);
+            text-align: center;
+            max-width: 320px;
+            line-height: 1.6;
+            margin: 0 auto 32px auto;
+            padding: 0 20px;
+          }
           .orange-pill {
-            top: 75vh;
-            height: 100px;
+            position: relative;
+            top: auto;
+            bottom: auto;
+            left: auto;
+            transform: none;
+            width: 92%;
+            max-width: 92%;
+            height: 56px;
+            border-radius: 100px;
+            margin: 0 auto;
           }
           .ticker-item {
-            font-size: 24px;
+            font-size: 16px;
           }
           .ticker-sep {
-            margin: 0 20px;
-            font-size: 18px;
+            margin: 0 10px;
+            font-size: 12px;
+          }
+          .center-headline {
+            font-size: 24px;
+            white-space: normal;
+            max-width: 85vw;
+            padding: 0 16px;
+          }
+          .hero-glow {
+            display: none;
           }
           
-          /* Adjusting welcome section for mobile */
+          /* Welcome section mobile */
           .lumenxo-welcome-section {
-            padding: 60px 20px;
+            padding: 60px 16px;
           }
           .welcome-content-container {
-            gap: 40px;
+            gap: 32px;
+          }
+          .welcome-title-letters {
+            font-size: clamp(24px, 5.5vw, 40px);
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-section {
+            padding-top: 100px;
+          }
+          .hero-headline {
+            font-size: clamp(30px, 9vw, 44px);
+          }
+          .hero-badge {
+            font-size: 9px;
+            padding: 5px 10px;
+          }
+          .hero-subtitle {
+            font-size: 13px;
+            max-width: 280px;
+          }
+          .orange-pill {
+            height: 50px;
+          }
+          .ticker-item {
+            font-size: 14px;
+          }
+          .ticker-sep {
+            margin: 0 8px;
+            font-size: 10px;
+          }
+          .lumenxo-welcome-section {
+            padding: 40px 12px;
+          }
+          .welcome-title-letters {
+            font-size: clamp(20px, 5vw, 32px);
+          }
+          .bento-card {
+            padding: 24px;
           }
         }
 
@@ -1107,7 +1208,8 @@ const DigitalAgencyHome = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          overflow: hidden; /* CRITICAL - prevents scrollbar during cartwheel */
+          overflow: hidden;
+          box-sizing: border-box;
         }
 
         .welcome-content-container {
@@ -1214,6 +1316,7 @@ const DigitalAgencyHome = () => {
         .innovate-section {
           padding: 100px 5%;
           background: #000;
+          box-sizing: border-box;
         }
 
         .innovate-card {
@@ -1323,10 +1426,37 @@ const DigitalAgencyHome = () => {
           }
           .innovate-btns {
             justify-content: center;
+            flex-wrap: wrap;
           }
           .innovate-right {
             width: 100%;
             justify-content: center;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .innovate-section {
+            padding: 60px 4%;
+          }
+          .innovate-card {
+            padding: 32px 20px;
+            border-radius: 24px;
+          }
+          .innovate-title {
+            font-size: clamp(32px, 8vw, 56px);
+          }
+          .innovate-desc {
+            font-size: 16px;
+          }
+          .btn-write, .btn-book-dark {
+            padding: 16px 28px;
+            font-size: 15px;
+            border-radius: 14px;
+          }
+          .innovate-btns {
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
           }
         }
 
@@ -1643,11 +1773,12 @@ const DigitalAgencyHome = () => {
         .featured-section {
           position: relative;
           width: 100%;
-          min-height: 100vh;
+          min-height: auto;
           background: var(--slate);
           z-index: 100;
-          padding: 20px 0; /* Reduced top and bottom padding */
-          overflow: hidden; /* to contain margins */
+          padding: 20px 0;
+          overflow: hidden;
+          box-sizing: border-box;
         }
 
         .featured-image-container {
@@ -1658,7 +1789,7 @@ const DigitalAgencyHome = () => {
           border-radius: 20px;
           overflow: hidden;
           opacity: 1;
-          margin: 0 auto 120px auto; /* 120px bottom margin to ensure space */
+          margin: 0 auto 120px auto;
         }
 
         .featured-image {
@@ -1698,8 +1829,33 @@ const DigitalAgencyHome = () => {
           display: flex;
           flex-direction: column;
           gap: 40px;
-          padding: 40px 0 0 0; /* Minimal bottom padding */
+          padding: 40px 0 0 0;
           overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+          .featured-section {
+            min-height: auto;
+            padding: 20px 0;
+          }
+          .featured-image-container {
+            width: 95%;
+            margin: 0 auto 40px auto;
+            border-radius: 12px;
+          }
+          .featured-overlay-text {
+            font-size: clamp(24px, 6vw, 40px);
+            width: 95%;
+            letter-spacing: -1px;
+          }
+          .marquee-wrapper {
+            gap: 20px;
+          }
+          .marquee-item {
+            min-width: 120px;
+            height: 60px;
+            padding: 0 16px;
+          }
         }
 
         .marquee-container {
@@ -1773,6 +1929,7 @@ const DigitalAgencyHome = () => {
           padding: 120px 5%;
           background: var(--slate);
           position: relative;
+          box-sizing: border-box;
         }
 
         .services-masonry {
@@ -1785,6 +1942,17 @@ const DigitalAgencyHome = () => {
         @media (max-width: 768px) {
           .services-masonry {
             column-count: 1;
+          }
+          .home-services-section {
+            padding: 60px 4%;
+          }
+          .service-bento-card {
+            padding: 28px 20px;
+            border-radius: 20px;
+          }
+          .service-bento-card.tall,
+          .service-bento-card.short {
+            min-height: auto;
           }
         }
 
@@ -1875,9 +2043,10 @@ const DigitalAgencyHome = () => {
 
         /* TESTIMONIALS SECTION */
         .testimonials-section {
-          padding: 40px 5% 160px 5%; /* Significantly reduced top padding */
+          padding: 40px 5% 160px 5%;
           background: var(--slate);
           position: relative;
+          box-sizing: border-box;
         }
 
         .testimonials-header {
@@ -1902,6 +2071,21 @@ const DigitalAgencyHome = () => {
           font-weight: 800;
           color: var(--pearl);
           line-height: 1.1;
+        }
+
+        @media (max-width: 768px) {
+          .testimonials-section {
+            padding: 40px 4% 80px 4%;
+          }
+          .testimonials-header {
+            margin-bottom: 40px;
+          }
+          .testimonial-box {
+            padding: 24px;
+          }
+          .testimonial-text {
+            font-size: 15px;
+          }
         }
 
         .masonry-wall {
@@ -2107,6 +2291,8 @@ const DigitalAgencyHome = () => {
           border-top: 1px solid rgba(255, 255, 255, 0.05);
           color: rgba(255, 255, 255, 0.4);
           font-size: 14px;
+          flex-wrap: wrap;
+          gap: 8px;
         }
 
         @media (max-width: 992px) {
@@ -2120,6 +2306,15 @@ const DigitalAgencyHome = () => {
           }
           .footer-socials {
             justify-content: flex-start;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .footer-bottom {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+            font-size: 12px;
           }
         }
       `}</style>
@@ -2145,6 +2340,10 @@ const DigitalAgencyHome = () => {
             <span className="hero-word">Enterprises</span>
           </div>
         </h1>
+
+        <p className="hero-subtitle">
+          We engineer high-performing digital products designed for rapid growth and exceptional user experiences.
+        </p>
 
         <div className="dark-overlay"></div>
         
@@ -2447,6 +2646,17 @@ const DigitalAgencyHome = () => {
             </div>
             <h3>Hosting</h3>
             <p>Reliable, secure, and lightning-fast cloud hosting solutions for your applications.</p>
+            <Link to="/Services" className="service-link">
+              Explore More <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div className="service-bento-card tall">
+            <div className="service-icon-wrapper">
+              <Bot size={32} />
+            </div>
+            <h3>Custom AI & Chatbots</h3>
+            <p>We design intelligent automation and conversational AI solutions. Integrate NLP and machine learning to streamline your workflows, automate customer support, and provide 24/7 intelligent assistance.</p>
             <Link to="/Services" className="service-link">
               Explore More <ArrowRight size={16} />
             </Link>

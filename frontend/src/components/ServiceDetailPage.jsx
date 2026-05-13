@@ -226,6 +226,21 @@ export default function ServiceDetailPage() {
 
             </div>
 
+            {/* Pricing Section */}
+            {service.pricing && (
+              <div className="mt-12 p-6 bg-gradient-to-r from-[#F05A28]/10 to-transparent border-l-4 border-[#F05A28] rounded-r-xl">
+                <h4 className="text-lg font-semibold text-white mb-1 flex items-center">
+                  Investment Estimate
+                </h4>
+                <p className="text-3xl font-bold text-white tracking-tight">
+                  {service.pricing}
+                </p>
+                <p className="text-gray-400 text-sm mt-2">
+                  * Final pricing depends on project scope and requirements.
+                </p>
+              </div>
+            )}
+
             {/* CTA */}
             <div className="mt-16 p-8 bg-black/40 rounded-2xl border border-gray-800 flex flex-col sm:flex-row items-center justify-between">
               <div>

@@ -262,6 +262,39 @@ const MaskRevealGallery = () => {
             gap: 80px;
           }
         }
+
+        @media (max-width: 768px) {
+          .mask-reveal-section {
+            padding: 60px 16px;
+          }
+          .reveal-grid {
+            gap: 48px;
+          }
+          .item-title {
+            font-size: 24px;
+          }
+          .item-description {
+            font-size: 14px;
+          }
+          .section-title {
+            font-size: clamp(28px, 6vw, 48px);
+          }
+        }
+
+        @media (max-width: 480px) {
+          .mask-reveal-section {
+            padding: 40px 12px;
+          }
+          .reveal-grid {
+            gap: 36px;
+          }
+          .reveal-content {
+            gap: 12px;
+          }
+          .item-title {
+            font-size: 20px;
+          }
+        }
       `}</style>
 
       <div className="section-header">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaPhone, FaWhatsapp, FaComments } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const ChatBotPopup = styled.div`
   position: fixed;
@@ -13,6 +14,13 @@ const ChatBotPopup = styled.div`
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: calc(100vw - 40px);
+    height: 350px;
+    right: 20px;
+    bottom: 80px;
+  }
 `;
 
 const FloatingLeftContainer = styled.div`
@@ -44,8 +52,19 @@ const FloatingLeftContainer = styled.div`
   a:hover {
     transform: translateY(-5px);
   }
-`;
 
+  @media (max-width: 768px) {
+    bottom: 16px;
+    left: 16px;
+    gap: 10px;
+
+    a {
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+    }
+  }
+`;
 
 const FloatingRightContainer = styled.div`
   position: fixed;
@@ -53,6 +72,7 @@ const FloatingRightContainer = styled.div`
   right: 20px;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: 15px;
   z-index: 1000;
 
@@ -75,13 +95,96 @@ const FloatingRightContainer = styled.div`
   button.chatbot:hover {
     transform: translateY(-5px);
   }
+
+  @media (max-width: 768px) {
+    bottom: 16px;
+    right: 16px;
+    gap: 10px;
+
+    button.chatbot {
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+    }
+  }
+`;
+
+const BookCallButton = styled.button`
+  background-color: #F05A28;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 30px rgba(240, 90, 40, 0.4);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #e04e20;
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(240, 90, 40, 0.6);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+`;
+
+const Toast = styled.div`
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #22C55E;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  animation: slideDown 0.3s ease-out;
+
+  @keyframes slideDown {
+    from { top: -50px; opacity: 0; }
+    to { top: 40px; opacity: 1; }
+  }
 `;
 
 const FloatingContacts = () => {
   const [showChatbot, setShowChatbot] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  const handleCopyNumber = () => {
+    navigator.clipboard.writeText("+91 82605 69773");
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+  };
 
   return (
     <>
+      {showToast && (
+        <Toast>Phone number copied: +91 82605 69773</Toast>
+      )}
+      
       {showChatbot && (
         <ChatBotPopup>
           <iframe
@@ -110,6 +213,10 @@ const FloatingContacts = () => {
       </FloatingLeftContainer>
 
       <FloatingRightContainer>
+        <BookCallButton onClick={handleCopyNumber}>
+          <FaPhone size={18} />
+          <span>Book a call</span>
+        </BookCallButton>
         <button
           onClick={() => setShowChatbot(!showChatbot)}
           className="chatbot"

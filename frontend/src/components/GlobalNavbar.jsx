@@ -186,6 +186,29 @@ const GlobalNavbar = ({ theme = 'dark' }) => {
           .hamburger {
             display: block;
           }
+          .navbar-wrapper {
+            top: 16px;
+          }
+          .navbar {
+            width: 95%;
+            padding: 4px 12px 4px 16px;
+          }
+          .navbar.contracted {
+            width: 92%;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .navbar-wrapper {
+            top: 12px;
+          }
+          .navbar {
+            padding: 4px 8px 4px 12px;
+            border-radius: 10px;
+          }
+          .mobile-menu a {
+            font-size: 20px;
+          }
         }
       `}</style>
 
@@ -214,6 +237,7 @@ const GlobalNavbar = ({ theme = 'dark' }) => {
 
       <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
         <Link to="/" onClick={toggleMenu}>Home</Link>
+        <Link to="/Careers" onClick={toggleMenu}>Careers</Link>
         <Link to="/Services" onClick={toggleMenu}>Service</Link>
         <Link to="/Pricing" onClick={toggleMenu}>Blog</Link>
         <Link to="/AboutUs" onClick={toggleMenu}>About us</Link>

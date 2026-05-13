@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaEnvelope, FaPhoneAlt, FaLink, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
-import { motion } from 'framer-motion';
 import { BsWhatsapp } from 'react-icons/bs'; 
-
+import GlobalFooter from './GlobalFooter';
+import GlobalNavbar from './GlobalNavbar';
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -103,6 +103,7 @@ const socialLinks = [
 export default function ContactInfo() {
   return (
     <>
+    <GlobalNavbar theme="dark" />
     <section className="relative py-20 px-6 overflow-hidden">
     
       <div 
@@ -328,6 +329,7 @@ export default function ContactInfo() {
         </motion.div>
       </div>
     </section>
+    <GlobalFooter />
     </>
   );
 }
