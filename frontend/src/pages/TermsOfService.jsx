@@ -188,7 +188,7 @@ const TermsOfService = () => {
                     <tr><td className="p-4 border-b border-white/5 font-bold text-white">Annual plan — cancelled within 14 days</td><td className="p-4 border-b border-white/5">Full refund for unused portion</td></tr>
                     <tr><td className="p-4 border-b border-white/5 font-bold text-white">Monthly plan — cancelled mid-cycle</td><td className="p-4 border-b border-white/5">No refund; access continues to period end</td></tr>
                     <tr><td className="p-4 border-b border-white/5 font-bold text-white">Billing error / duplicate charge</td><td className="p-4 border-b border-white/5">Full refund within 7 business days</td></tr>
-                    <tr><td className="p-4 border-b border-white/5 font-bold text-white">Service outage > 24 hrs (SLA breach)</td><td className="p-4 border-b border-white/5">Credit per SLA agreement</td></tr>
+                    <tr><td className="p-4 border-b border-white/5 font-bold text-white">Service outage &gt; 24 hrs (SLA breach)</td><td className="p-4 border-b border-white/5">Credit per SLA agreement</td></tr>
                   </tbody>
                 </table>
               </div>

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import GlobalNavbar from "./GlobalNavbar";
 import GlobalFooter from "./GlobalFooter";
 import gsap from "gsap";
+import aiChatbotsImage from "../Assets/AAAAIIIIIIiii.png";
 
 // ─── Service Data ────────────────────────────────────────────────────────────
 export const services = [
@@ -16,7 +17,7 @@ export const services = [
     shortDescription: "Strategic integration of corporate responsibility into core operations for sustainable business practices.",
     iconComponent: Sparkles,
     accentColor: "text-blue-600",
-    pricing: "Starting at ₹25,000 / month",
+    pricing: null,
     detailedContent: {
       overview: "Our Administration services focus on streamlining your business operations through strategic planning, process optimization, and corporate governance. We help organizations build sustainable frameworks that drive long-term success.",
       features: ["Strategic Business Planning & Analysis","Corporate Governance & Compliance","Process Optimization & Automation","Risk Management & Assessment","Performance Monitoring & KPI Development","Change Management & Implementation"],
@@ -31,7 +32,7 @@ export const services = [
     shortDescription: "Robust, scalable, and intuitive applications across platforms from ideation to deployment.",
     iconComponent: Code,
     accentColor: "text-purple-600",
-    pricing: "Starting at ₹1,50,000",
+    pricing: null,
     detailedContent: {
       overview: "We develop cutting-edge applications that transform your business ideas into powerful digital solutions. Our full-stack development approach ensures scalable, secure, and user-friendly applications across all platforms.",
       features: ["Custom Web Application Development","Mobile App Development (iOS & Android)","Progressive Web Apps (PWA)","API Development & Integration","Database Design & Management","Cloud Deployment & DevOps"],
@@ -46,7 +47,7 @@ export const services = [
     shortDescription: "Modern, responsive, and user-centric websites with seamless navigation and visual aesthetics.",
     iconComponent: Palette,
     accentColor: "text-cyan-600",
-    pricing: "Starting at ₹45,000",
+    pricing: null,
     detailedContent: {
       overview: "Our web design services combine aesthetic excellence with functional design principles. We create visually stunning, responsive websites that not only look great but also drive conversions and enhance user experience.",
       features: ["Responsive Web Design & Development","UI/UX Research & Prototyping","Brand Identity & Visual Design","Conversion Rate Optimization","Accessibility & Performance Optimization","Design System Creation"],
@@ -61,7 +62,7 @@ export const services = [
     shortDescription: "Data-driven marketing strategies to amplify your brand's digital presence and reach.",
     iconComponent: TrendingUp,
     accentColor: "text-green-600",
-    pricing: "Starting at ₹30,000 / month",
+    pricing: null,
     detailedContent: {
       overview: "Our digital marketing services leverage the power of data analytics and creative content to maximize your online visibility. We craft targeted campaigns that resonate with your audience and deliver measurable results.",
       features: ["Search Engine Optimization (SEO)","Pay-Per-Click Advertising (PPC)","Social Media Marketing & Management","Content Marketing & Strategy","Email Marketing Campaigns","Analytics & Performance Reporting"],
@@ -76,7 +77,7 @@ export const services = [
     shortDescription: "Dynamic, SEO-friendly, and fully customized WordPress websites tailored to your business goals.",
     iconComponent: Wrench,
     accentColor: "text-orange-600",
-    pricing: "Starting at ₹20,000",
+    pricing: null,
     detailedContent: {
       overview: "We specialize in creating powerful, flexible WordPress solutions that grow with your business. From custom themes to complex plugins, we deliver WordPress websites that are both beautiful and functional.",
       features: ["Custom WordPress Theme Development","Plugin Development & Customization","WooCommerce E-commerce Solutions","WordPress Migration & Optimization","Maintenance & Security Updates","Multi-site Management & Setup"],
@@ -91,7 +92,7 @@ export const services = [
     shortDescription: "Secure, scalable, and high-performance API design and integration for seamless data exchange.",
     iconComponent: Server,
     accentColor: "text-indigo-600",
-    pricing: "Starting at ₹60,000",
+    pricing: null,
     detailedContent: {
       overview: "Our API Management services enable secure and efficient data exchange across your digital ecosystem. We design, build, and maintain robust APIs that connect your applications, streamline workflows, and unlock new business capabilities.",
       features: ["RESTful & GraphQL API Design","API Security & Authentication (OAuth, JWT)","Third-Party API Integration","API Gateway Setup & Configuration","Rate Limiting & Traffic Management","Comprehensive API Documentation"],
@@ -101,12 +102,12 @@ export const services = [
   },
   {
     id: "ai-chatbots",
-    img: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+    img: aiChatbotsImage,
     title: "Custom AI & Chatbots",
     shortDescription: "Intelligent automation and conversational AI solutions tailored to your specific business workflows.",
     iconComponent: Bot,
     accentColor: "text-rose-600",
-    pricing: "Starting at ₹85,000",
+    pricing: "₹19,000 / month",
     detailedContent: {
       overview: "We design and develop custom AI solutions and conversational chatbots that streamline your operations and enhance customer engagement. By integrating advanced natural language processing and machine learning, we help your business automate tasks and provide 24/7 intelligent support.",
       features: ["Custom Chatbot Development","AI Integration into Existing Workflows","Natural Language Processing (NLP)","Machine Learning Model Deployment","Automated Customer Support","Data Analytics & Insights Generation"],
