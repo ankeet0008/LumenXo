@@ -265,6 +265,13 @@ const DigitalAgencyHome = () => {
         }
       });
 
+      tl.to([".hero-badge", ".hero-headline", ".hero-subtitle-new"], {
+        opacity: 0,
+        y: -80,
+        duration: 1.5,
+        ease: "power2.out"
+      }, 0);
+
       tl.to(".orange-pill", {
         top: 0,
         width: "100vw",
@@ -274,12 +281,12 @@ const DigitalAgencyHome = () => {
         background: "#F97316",
         duration: 4,
         ease: "power2.inOut"
-      }, 0);
+      }, 0.5);
 
-      tl.to(".dark-overlay", { opacity: 1, duration: 4 }, 0);
-      tl.to(".ticker-item", { fontSize: "120px", fontWeight: 800, duration: 4 }, 0);
-      tl.to(".ticker-sep", { color: "rgba(255,255,255,0.6)", fontSize: "60px", margin: "0 60px", duration: 4 }, 0);
-      tl.to(".center-headline", { opacity: 1, y: 0, duration: 2 }, 3);
+      tl.to(".dark-overlay", { opacity: 1, duration: 4 }, 0.5);
+      tl.to(".ticker-item", { fontSize: "120px", fontWeight: 800, duration: 4 }, 0.5);
+      tl.to(".ticker-sep", { color: "rgba(255,255,255,0.6)", fontSize: "60px", margin: "0 60px", duration: 4 }, 0.5);
+      tl.to(".center-headline", { opacity: 1, y: 0, duration: 2 }, 3.5);
 
       gsap.set(".tech-card", { 
         y: "50vh",
@@ -345,12 +352,11 @@ const DigitalAgencyHome = () => {
         }
       });
 
-      // First, switch the pill back to absolute positioning for the expansion
-      tl.set(".orange-pill", {
-        position: "absolute",
-        left: "50%",
-        transform: "translateX(-50%)",
-        bottom: "auto",
+      tl.to([".hero-badge", ".hero-headline", ".hero-subtitle"], {
+        opacity: 0,
+        y: -40,
+        duration: 1.5,
+        ease: "power2.out"
       }, 0);
 
       tl.to(".orange-pill", {
@@ -361,19 +367,12 @@ const DigitalAgencyHome = () => {
         borderRadius: "0px",
         duration: 4,
         ease: "power2.inOut"
-      }, 0);
+      }, 0.5);
 
-      // Fade out the headline and badge as the pill expands
-      tl.to(".hero-headline, .hero-badge, .hero-subtitle", {
-        opacity: 0,
-        y: -30,
-        duration: 2,
-        ease: "power2.in"
-      }, 0);
-
-      tl.to(".ticker-item", { fontSize: "48px", fontWeight: 800, duration: 4 }, 0);
-      tl.to(".ticker-sep", { fontSize: "24px", margin: "0 20px", duration: 4 }, 0);
-      tl.to(".center-headline", { opacity: 1, y: 0, duration: 2, fontSize: "32px" }, 3);
+      tl.to(".dark-overlay", { opacity: 1, duration: 4 }, 0.5);
+      tl.to(".ticker-item", { fontSize: "48px", fontWeight: 800, duration: 4 }, 0.5);
+      tl.to(".ticker-sep", { fontSize: "24px", margin: "0 20px", duration: 4 }, 0.5);
+      tl.to(".center-headline", { opacity: 1, y: 0, duration: 2, fontSize: "32px" }, 3.5);
     });
 
     // Shared animations (outside matchMedia if they apply to all)
@@ -666,6 +665,18 @@ const DigitalAgencyHome = () => {
         .hero-word {
           display: inline-block;
           white-space: nowrap;
+        }
+
+        .hero-subtitle-new {
+          font-family: 'Inter', sans-serif;
+          font-size: 18px;
+          color: rgba(255, 255, 255, 0.6);
+          text-align: center;
+          max-width: 600px;
+          margin-top: 32px;
+          line-height: 1.6;
+          z-index: 2;
+          padding: 0 20px;
         }
 
         /* FLOATING CARDS */
@@ -1122,16 +1133,20 @@ const DigitalAgencyHome = () => {
             padding: 0 20px;
           }
           .orange-pill {
-            position: relative;
-            top: auto;
-            bottom: auto;
-            left: auto;
-            transform: none;
+            position: absolute;
+            top: 72vh;
+            left: 50%;
+            transform: translateX(-50%);
             width: 92%;
-            max-width: 92%;
+            max-width: 480px;
             height: 56px;
             border-radius: 100px;
-            margin: 0 auto;
+          }
+          .hero-subtitle-new {
+            font-size: 15px;
+            margin-top: 20px;
+            max-width: 90%;
+            line-height: 1.5;
           }
           .ticker-item {
             font-size: 16px;
