@@ -11,31 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ContactUs11 = () => {
   const [state, handleSubmit] = useForm("mldlbald");
-  const shutterRef = useRef(null);
-  const wrapperRef = useRef(null);
-
-  useEffect(() => {
-    const shutter = shutterRef.current;
-    const wrapper = wrapperRef.current;
-    if (!shutter || !wrapper) return;
-
-    // Animate the shutter panel sliding up to reveal location section
-    gsap.to(shutter, {
-      yPercent: -100,
-      ease: "power2.inOut",
-      scrollTrigger: {
-        trigger: wrapper,
-        start: "top top",
-        end: () => `+=${window.innerHeight}`,
-        scrub: 0.8,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
-    };
-  }, []);
 
   return (
     <>
@@ -44,29 +19,25 @@ const ContactUs11 = () => {
         /* SHUTTER LAYOUT */
         .contact-page-wrapper {
           position: relative;
-          height: 200vh;
-          overflow: visible;
+          width: 100%;
         }
 
         .shutter-panel {
-          position: sticky;
-          top: 0;
-          height: 100vh;
+          position: relative;
           z-index: 10;
-          will-change: transform;
           overflow: hidden;
+          width: 100%;
         }
 
         /* CONTACT FORM INNER */
         .contact-container {
           background-color: #ffffff;
-          height: 100vh;
+          min-height: 90vh;
           padding: 160px 20px 100px;
           display: flex;
           flex-direction: column;
           align-items: center;
           font-family: 'Inter', sans-serif;
-          overflow: hidden;
         }
 
         .contact-header {
@@ -240,15 +211,13 @@ const ContactUs11 = () => {
           }
         }
         .location-section {
-          height: 100vh;
+          min-height: 100vh;
           width: 100%;
           display: flex;
           background: #efefef;
           overflow: hidden;
-          position: sticky;
-          top: 0;
+          position: relative;
           z-index: 1;
-          margin-top: -100vh;
           font-family: 'Inter', sans-serif;
         }
 
@@ -355,8 +324,8 @@ const ContactUs11 = () => {
         }
       `}</style>
 
-      <div ref={wrapperRef} className="contact-page-wrapper">
-        <div ref={shutterRef} className="shutter-panel">
+      <div className="contact-page-wrapper">
+        <div className="shutter-panel">
           <main className="contact-container">
         <div className="contact-header">
           <h1>Let's talk!</h1>
