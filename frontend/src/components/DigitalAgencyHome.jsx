@@ -1102,11 +1102,10 @@ const DigitalAgencyHome = () => {
             display: block;
           }
           .hero-section {
-            padding-top: 120px;
+            padding-top: 0;
             min-height: 100vh;
-            height: auto;
-            padding-bottom: 40px;
-            justify-content: flex-start;
+            height: 100vh;
+            justify-content: center;
             gap: 0;
           }
           .hero-line {
@@ -1179,7 +1178,7 @@ const DigitalAgencyHome = () => {
 
         @media (max-width: 480px) {
           .hero-section {
-            padding-top: 100px;
+            padding-top: 0;
           }
           .hero-headline {
             font-size: clamp(30px, 9vw, 44px);
